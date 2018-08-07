@@ -1,0 +1,32 @@
+.container1{
+    display:flex;
+    flex-wrap:wrap;
+    margin: 15px;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  .formatka {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 700px;
+  }
+  
+  .regulamin{
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  mat-card {
+    /* display: flex; */
+    /* flex-direction: column; */
+        font-size: 14px;
+  }
+  
+  .bkrs {
+    margin-bottom: 15px;
+  }
+  
+  .pointer {cursor: pointer;}

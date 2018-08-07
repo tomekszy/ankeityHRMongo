@@ -1,3 +1,30 @@
-<p>
-  ankieta works!
-</p>
+<div class="container1">
+  <div class="userRegisterMain">
+    <mat-card>
+      <mat-card-header>
+        
+          Szanowni Państwo,
+            Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for Researchers. Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie atrakcyjności warunków pracy naukowej w MIR-PIB.
+            Ankieta składa się z trzech części i jest anonimowa. Można ją przerwać w dowolnym momencie, bez utraty wprowadzonych odpowiedzi. Aby powrócić do wypełniania należy ponownie kliknąć na link do ankiety otrzymany w wiadomości e-mail. Ankieta jest dostępna online w terminie od do.
+            
+        
+      </mat-card-header>
+      <mat-card-content>
+        <form #ankietaForm="ngForm" class="formatka">
+
+          <mat-radio-group type="text" name="odKiedyHR" #organizationodKiedyHR="ngModel"
+	          [(ngModel)]="ankieta.odKiedyHR" placeholder="Od kiedy Morski Instytut Rybacki - PIB posiada wyróżnienie HR Excellence in Research?">
+	          <mat-radio-button value="2015">2015</mat-radio-button><br>
+            <mat-radio-button value="2016">2016</mat-radio-button>
+            <mat-radio-button value="2017">2017</mat-radio-button>
+	          <mat-radio-button value="2018">2018</mat-radio-button>
+          </mat-radio-group>
+        
+
+          <button mat-raised-button color="warn" type="submit" (click)="zapisz(ankietaForm)">Zapisz dane.</button>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
