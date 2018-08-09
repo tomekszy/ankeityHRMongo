@@ -1,32 +1,83 @@
-.container1{
-    display:flex;
-    flex-wrap:wrap;
-    margin: 15px;
-    justify-content: center;
-    flex: 1;
-  }
-  
-  .formatka {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
-    width: 700px;
-  }
-  
-  .regulamin{
-    text-align: left;
-    margin-bottom: 20px;
-  }
-  
-  mat-card {
-    /* display: flex; */
-    /* flex-direction: column; */
-        font-size: 14px;
-  }
-  
-  .bkrs {
-    margin-bottom: 15px;
-  }
-  
-  .pointer {cursor: pointer;}
+.container1 {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  justify-content: center;
+  flex: 1;
+}
+
+.formatka {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 1300px;
+}
+
+.regulamin {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+mat-card {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.bkrs {
+  margin-bottom: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#buttony {
+  display: flex;
+  flex-direction: column;
+}
+
+#buttony1 {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.buttony1-margin {
+  margin-top: 0px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+mat-radio-button {
+  padding-top: 5px;
+  padding-bottom: 20px;
+  /* cursor: inherit;
+      align-items: baseline;
+      vertical-align: middle;
+      display: inline-flex; */
+ 
+}
+
+#checkboxy {
+  display: flex;
+  flex-direction: column;
+ 
+  justify-content: space-around; 
+}
+
+mat-checkbox {
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+mat-card-header {
+  font-size: 15px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  text align: justify;
+}
