@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AnkietaService } from '../../services/ankieta.service'
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-ankieta',
@@ -57,15 +58,21 @@ export class AnkietaComponent implements OnInit {
     pytIII39: '',
     pytIII40: '',
     uwagi: '',
+    aktualnaData: new Date()
   };
+  id: string;
 
-  constructor() { }
+
+  constructor(
+    private ankietaService: AnkietaService
+  ) { }
 
   ngOnInit() {
+    this.id = this.ankietaService.generateId();
   }
 
-  zapisz(form) {
-
+  zapisz() {
+    this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
   }
 
 
