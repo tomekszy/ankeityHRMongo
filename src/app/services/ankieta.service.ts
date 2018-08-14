@@ -31,6 +31,9 @@ export class AnkietaService {
       .collection('Ankiety')
       .doc(id)
       .valueChanges();
+    if (this.ankietaObs === undefined) {
+      console.log(this.ankietaObs)
+    }
     return this.ankietaObs
   }
 

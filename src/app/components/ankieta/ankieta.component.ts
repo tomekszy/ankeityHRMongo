@@ -64,7 +64,7 @@ export class AnkietaComponent implements OnInit {
   idDoWpisu: string;
   czyZapisana: boolean;
   czyPoprzedniaAnkieta: boolean;
-
+  czyZlaAnkieta: boolean;
 
   constructor(
     private ankietaService: AnkietaService
@@ -74,6 +74,7 @@ export class AnkietaComponent implements OnInit {
     this.id = this.ankietaService.generateId();
     this.czyZapisana = false;
     this.czyPoprzedniaAnkieta = false;
+    this.czyZlaAnkieta = false;
   }
 
   zapisz() {
