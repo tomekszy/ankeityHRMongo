@@ -3,19 +3,38 @@
     <mat-card>
       <mat-card-header>
 
-        <div><p>Szanowni Państwo,</p> <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy
-        for Researchers. Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie
-        atrakcyjności warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją przerwać
-        w dowolnym momencie, bez utraty wprowadzonych odpowiedzi. Aby powrócić do wypełniania należy ponownie kliknąć na
-        link do ankiety otrzymany w wiadomości e-mail.<bR> Ankieta jest dostępna online w terminie od do.</p></div>
+        <div>
+          <p>Szanowni Państwo,</p>
+          <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for Researchers.
+            Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie atrakcyjności
+            warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją przerwać w dowolnym
+            momencie, bez utraty wprowadzonych odpowiedzi. Aby powrócić do wypełniania należy ponownie kliknąć na link do
+            ankiety otrzymany w wiadomości e-mail.
+            <bR> Ankieta jest dostępna online w terminie od do.</p>
+        </div>
 
 
       </mat-card-header>
       <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
+          <br> Numer ankiety: {{ id }}
+          <br>
+          <div *ngIf="czyPoprzedniaAnkieta">
+            <mat-form-field>
+              <input matInput type="text" name="idDoWpisu" [(ngModel)]="idDoWpisu">
+            </mat-form-field>
+            <button mat-button (click)="pobierzAnkiete(idDoWpisu)">Pobierz ankietę</button>
+          </div>
+          <button mat-button (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button>
 
-            <div><h3><u>Część I</u></h3></div>
-          <div><h4>1)	Od kiedy Morski Instytut Rybacki - PIB posiada wyróżnienie HR Excellence in Research?</h4></div>
+          <div>
+            <h3>
+              <u>Część I</u>
+            </h3>
+          </div>
+          <div>
+            <h4>1) Od kiedy Morski Instytut Rybacki - PIB posiada wyróżnienie HR Excellence in Research?</h4>
+          </div>
 
           <mat-radio-group type="text" name="pytI1" #ankietapytI1="ngModel" [(ngModel)]="ankieta.pytI1" id="buttony">
             <mat-radio-button value="I-1-a">2015</mat-radio-button>
@@ -25,446 +44,587 @@
           </mat-radio-group>
 
 
-          <div><h4>2)	Jakie jednostki mogą otrzymać europejskie wyróżnienie HR Excellence in Research? /zaznacz wszystkie poprawne odpowiedzi/</h4></div>
+          <div>
+            <h4>2) Jakie jednostki mogą otrzymać europejskie wyróżnienie HR Excellence in Research? /zaznacz wszystkie poprawne
+              odpowiedzi/
+            </h4>
+          </div>
 
           <mat-radio-group type="text" name="pytI2" #ankietapytI2="ngModel" [(ngModel)]="ankieta.pytI2" id="checkboxy">
             <mat-checkbox value="I-2-a">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
             <mat-checkbox value="I-2-b">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-              <mat-checkbox value="I-2-c">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
-                <mat-checkbox value="I-2-d">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
+            <mat-checkbox value="I-2-c">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
+            <mat-checkbox value="I-2-d">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
           </mat-radio-group>
 
-          <div><h4>3)	Jakie działania były realizowane w MIR-PIB w ramach realizacji strategii Human Resources Strategy for Researchers? /zaznacz wszystkie poprawne odpowiedzi/</h4></div>
+          <div>
+            <h4>3) Jakie działania były realizowane w MIR-PIB w ramach realizacji strategii Human Resources Strategy for Researchers?
+              /zaznacz wszystkie poprawne odpowiedzi/</h4>
+          </div>
 
           <mat-radio-group type="text" name="pytI3" #ankietapytI3="ngModel" [(ngModel)]="ankieta.pytI3" id="checkboxy">
-            <mat-checkbox  value="I-3-a">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
-            <mat-checkbox  value="I-3-b">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę<br>
-               i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-              <mat-checkbox  value="I-3-c">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
-                <mat-checkbox value="I-3-d">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
+            <mat-checkbox value="I-3-a">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
+            <mat-checkbox value="I-3-b">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
+              na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
+              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu
+              postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+            <mat-checkbox value="I-3-c">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
+            <mat-checkbox value="I-3-d">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
+              przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
           </mat-radio-group>
-<br>
-          <div><h3><u>Część II</u></h3></div>
-          <div><h4>1)	Twój stopień naukowy to:</h4></div>
+          <br>
+          <div>
+            <h3>
+              <u>Część II</u>
+            </h3>
+          </div>
+          <div>
+            <h4>1) Twój stopień naukowy to:</h4>
+          </div>
           <mat-radio-group type="text" name="pytII1" #ankietapytII1="ngModel" [(ngModel)]="ankieta.pytII1" id="buttony">
-              <mat-radio-button value="II-1-a">mgr / mgr inż.</mat-radio-button>
-              <mat-radio-button value="II-1-b">dr / dr inż.</mat-radio-button>
-              <mat-radio-button value="II-1-c">dr hab. / dr hab. inż.</mat-radio-button>
-              <mat-radio-button value="II-1-d">profesor</mat-radio-button>
-            </mat-radio-group>
+            <mat-radio-button value="II-1-a">mgr / mgr inż.</mat-radio-button>
+            <mat-radio-button value="II-1-b">dr / dr inż.</mat-radio-button>
+            <mat-radio-button value="II-1-c">dr hab. / dr hab. inż.</mat-radio-button>
+            <mat-radio-button value="II-1-d">profesor</mat-radio-button>
+          </mat-radio-group>
 
-            <div><h4>2) Na jakim stanowisku jesteś zatrudniony w Instytucie?</h4></div>
-            <mat-radio-group type="text" name="pytII2" #ankietapytII2="ngModel" [(ngModel)]="ankieta.pytII2" id="buttony">
-                <mat-radio-button value="II-2-a">stażysta</mat-radio-button>
-                <mat-radio-button value="II-2-b">specjalista</mat-radio-button>
-                <mat-radio-button value="II-2-c">starszy specjalista</mat-radio-button>
-                <mat-radio-button value="II-2-d">asystent</mat-radio-button>
-                <mat-radio-button value="II-2-e">adiunkt</mat-radio-button>
-                <mat-radio-button value="II-2-f">profesor nadzw.</mat-radio-button>
-                <mat-radio-button value="II-2-g">profesor zwyczajny</mat-radio-button>
-                <mat-radio-button value="II-2-h">inne</mat-radio-button>
-              </mat-radio-group>
-            
-              <div><h4>3)	Twoja płeć:</h4></div>
-              <mat-radio-group type="text" name="pytII3" #ankietapytII3="ngModel" [(ngModel)]="ankieta.pytII3" id="buttony">
-                  <mat-radio-button value="II-3-a">kobieta</mat-radio-button>
-                  <mat-radio-button value="II-3-b">mężczyzna</mat-radio-button>
-                        </mat-radio-group>
+          <div>
+            <h4>2) Na jakim stanowisku jesteś zatrudniony w Instytucie?</h4>
+          </div>
+          <mat-radio-group type="text" name="pytII2" #ankietapytII2="ngModel" [(ngModel)]="ankieta.pytII2" id="buttony">
+            <mat-radio-button value="II-2-a">stażysta</mat-radio-button>
+            <mat-radio-button value="II-2-b">specjalista</mat-radio-button>
+            <mat-radio-button value="II-2-c">starszy specjalista</mat-radio-button>
+            <mat-radio-button value="II-2-d">asystent</mat-radio-button>
+            <mat-radio-button value="II-2-e">adiunkt</mat-radio-button>
+            <mat-radio-button value="II-2-f">profesor nadzw.</mat-radio-button>
+            <mat-radio-button value="II-2-g">profesor zwyczajny</mat-radio-button>
+            <mat-radio-button value="II-2-h">inne</mat-radio-button>
+          </mat-radio-group>
 
-                  <div><h4>4)	Twój wiek:</h4></div>
-                        <mat-radio-group type="text" name="pytII4" #ankietapytII4="ngModel" [(ngModel)]="ankieta.pytII4" id="buttony">
-                            <mat-radio-button value="II-4-a">24 lata i mniej</mat-radio-button>
-                            <mat-radio-button value="II-4-b">25–34 lata</mat-radio-button>
-                            <mat-radio-button value="II-4-c">35–44 lata</mat-radio-button>
-                            <mat-radio-button value="II-4-d">45–54 lata</mat-radio-button>
-                            <mat-radio-button value="II-4-e">55–64 lata</mat-radio-button>
-                            <mat-radio-button value="II-4-f">65 lat i więcej</mat-radio-button>        
-                          </mat-radio-group>      
+          <div>
+            <h4>3) Twoja płeć:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytII3" #ankietapytII3="ngModel" [(ngModel)]="ankieta.pytII3" id="buttony">
+            <mat-radio-button value="II-3-a">kobieta</mat-radio-button>
+            <mat-radio-button value="II-3-b">mężczyzna</mat-radio-button>
+          </mat-radio-group>
 
-                        <div><h4>5)	Twój staż pracy w MIR:</h4></div>
-                          <mat-radio-group type="text" name="pytII5" #ankietapytII5="ngModel" [(ngModel)]="ankieta.pytII5" id="buttony">
-                              <mat-radio-button value="II-5-a">2 lata i mniej</mat-radio-button>
-                              <mat-radio-button value="II-5-b">3–5 lat</mat-radio-button>
-                              <mat-radio-button value="II-5-c">6–10 lat</mat-radio-button>
-                              <mat-radio-button value="II-5-d">11–20 lat</mat-radio-button>
-                              <mat-radio-button value="II-5-e">21–30 lat</mat-radio-button>
-                              <mat-radio-button value="II-5-f">31 lat i więcej</mat-radio-button>        
-                            </mat-radio-group>    
-                            <br>
-              <div><h3><u>Część III</u></h3></div>
-                            
-              <div><h4>1)	Moją pracę w Instytucie charakteryzuje wolność badań naukowych:</h4></div>
-                            <mat-radio-group type="text"  name="pytIII1" #ankietapytIII1="ngModel" [(ngModel)]="ankieta.pytIII1" id="buttony1">
-                                <mat-radio-button class="buttony1-margin" value="III-1-a">zdecydowanie się zgadzam</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin" value="III-1-b">zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin" value="III-1-c">nie mam zdania</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin" value="III-1-d">nie zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin" value="III-1-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                              </mat-radio-group>
-              <div><h4>2)	W moim środowisku naukowym przestrzega się zasad etycznych:</h4></div>
-                            <mat-radio-group type="text" name="pytIII2" #ankietapytIII2="ngModel" [(ngModel)]="ankieta.pytIII2" id="buttony1">
-                                <mat-radio-button class="buttony1-margin" value="III-2-a">zdecydowanie się zgadzam</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-2-b">zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin" value="III-2-c">nie mam zdania</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-2-d">nie zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-2-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                              </mat-radio-group>
+          <div>
+            <h4>4) Twój wiek:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytII4" #ankietapytII4="ngModel" [(ngModel)]="ankieta.pytII4" id="buttony">
+            <mat-radio-button value="II-4-a">24 lata i mniej</mat-radio-button>
+            <mat-radio-button value="II-4-b">25–34 lata</mat-radio-button>
+            <mat-radio-button value="II-4-c">35–44 lata</mat-radio-button>
+            <mat-radio-button value="II-4-d">45–54 lata</mat-radio-button>
+            <mat-radio-button value="II-4-e">55–64 lata</mat-radio-button>
+            <mat-radio-button value="II-4-f">65 lat i więcej</mat-radio-button>
+          </mat-radio-group>
 
-                              <div><h4>3)	Badania, nad którymi pracuję, mają znaczenie dla społeczeństwa i nie powielają przeprowadzonych wcześniej i w innym miejscu badań:</h4></div>
-                            <mat-radio-group type="text" name="pytIII3" #ankietapytIII3="ngModel" [(ngModel)]="ankieta.pytIII3" id="buttony1">
-                                <mat-radio-button class="buttony1-margin"value="III-3-a">zdecydowanie się zgadzam</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-3-b">zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-3-c">nie mam zdania</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-3-d">nie zgadzam się</mat-radio-button>
-                                <mat-radio-button class="buttony1-margin"value="III-3-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                              </mat-radio-group>
+          <div>
+            <h4>5) Twój staż pracy w MIR:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytII5" #ankietapytII5="ngModel" [(ngModel)]="ankieta.pytII5" id="buttony">
+            <mat-radio-button value="II-5-a">2 lata i mniej</mat-radio-button>
+            <mat-radio-button value="II-5-b">3–5 lat</mat-radio-button>
+            <mat-radio-button value="II-5-c">6–10 lat</mat-radio-button>
+            <mat-radio-button value="II-5-d">11–20 lat</mat-radio-button>
+            <mat-radio-button value="II-5-e">21–30 lat</mat-radio-button>
+            <mat-radio-button value="II-5-f">31 lat i więcej</mat-radio-button>
+          </mat-radio-group>
+          <br>
+          <div>
+            <h3>
+              <u>Część III</u>
+            </h3>
+          </div>
 
-              <div><h4>4)	Dobrze znam strategiczne cele swojego środowiska naukowego oraz mechanizmy finansowania badań:</h4></div>
-                              <mat-radio-group type="text" name="pytIII4" #ankietapytIII4="ngModel" [(ngModel)]="ankieta.pytIII4" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-4-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-4-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-4-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-4-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-4-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>1) Moją pracę w Instytucie charakteryzuje wolność badań naukowych:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII1" #ankietapytIII1="ngModel" [(ngModel)]="ankieta.pytIII1" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-1-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-1-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-1-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-1-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-1-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+          <div>
+            <h4>2) W moim środowisku naukowym przestrzega się zasad etycznych:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII2" #ankietapytIII2="ngModel" [(ngModel)]="ankieta.pytIII2" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-2-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-2-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-2-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-2-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-2-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-              <div><h4>5)	Przestrzegam zobowiązań wynikających z umów lub przepisów, dostarczając tym samym wymaganych wyników badań (np. praca doktorska/habilitacyjna, publikacje, patenty, sprawozdania, opracowanie nowych produktów itp.):</h4></div>
-                              <mat-radio-group type="text" name="pytIII5" #ankietapytIII5="ngModel" [(ngModel)]="ankieta.pytIII5" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-5-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-5-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-5-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-5-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-5-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>3) Badania, nad którymi pracuję, mają znaczenie dla społeczeństwa i nie powielają przeprowadzonych wcześniej
+              i w innym miejscu badań:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII3" #ankietapytIII3="ngModel" [(ngModel)]="ankieta.pytIII3" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-3-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-3-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-3-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-3-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-3-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-               <div><h4>6)	Przestrzegam zasad starannego, przejrzystego i efektywnego zarządzania finansami oraz współpracuję z wszelkimi organami upoważnionymi do kontroli prowadzonych przeze mnie badań naukowych:</h4></div>
-                              <mat-radio-group type="text" name="pytIII6" #ankietapytIII6="ngModel" [(ngModel)]="ankieta.pytIII6" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-6-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-6-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-6-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-6-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-6-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>4) Dobrze znam strategiczne cele swojego środowiska naukowego oraz mechanizmy finansowania badań:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII4" #ankietapytIII4="ngModel" [(ngModel)]="ankieta.pytIII4" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-4-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-4-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-4-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-4-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-4-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-             <div><h4>7)	Stosuję bezpieczne sposoby wykonywania pracy, w tym podejmuję środki ostrożności na wypadek awarii technologii informatycznych, a także w zakresie ochrony danych/poufności:</h4></div>
-                              <mat-radio-group type="text" name="pytIII7" #ankietapytIII7="ngModel" [(ngModel)]="ankieta.pytIII7" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-7-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-7-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-7-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-7-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-7-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>5) Przestrzegam zobowiązań wynikających z umów lub przepisów, dostarczając tym samym wymaganych wyników badań
+              (np. praca doktorska/habilitacyjna, publikacje, patenty, sprawozdania, opracowanie nowych produktów itp.):</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII5" #ankietapytIII5="ngModel" [(ngModel)]="ankieta.pytIII5" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-5-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-5-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-5-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-5-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-5-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-             <div><h4>8)	Kładę nacisk na to, aby wyniki moich badań były rozpowszechniane (np. poprzez „newsy” na stronie internetowej Instytutu) i wykorzystywane (np. komercyjnie):</h4></div>
-                              <mat-radio-group type="text" name="pytIII8" #ankietapytIII8="ngModel" [(ngModel)]="ankieta.pytIII8" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-8-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-8-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-8-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-8-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-8-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>6) Przestrzegam zasad starannego, przejrzystego i efektywnego zarządzania finansami oraz współpracuję z wszelkimi
+              organami upoważnionymi do kontroli prowadzonych przeze mnie badań naukowych:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII6" #ankietapytIII6="ngModel" [(ngModel)]="ankieta.pytIII6" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-6-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-6-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-6-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-6-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-6-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                <div><h4>9)	Zależy mi na tym, aby wyniki moich badań docierały do ogółu społeczeństwa i były zrozumiałe dla osób nie będących specjalistami:</h4></div>
-                              <mat-radio-group type="text" name="pytIII9" #ankietapytIII9="ngModel" [(ngModel)]="ankieta.pytIII9" id="buttony1">
-                                  <mat-radio-button class="buttony1-margin"value="III-9-a">zdecydowanie się zgadzam</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-9-b">zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-9-c">nie mam zdania</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-9-d">nie zgadzam się</mat-radio-button>
-                                  <mat-radio-button class="buttony1-margin"value="III-9-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                </mat-radio-group>
+          <div>
+            <h4>7) Stosuję bezpieczne sposoby wykonywania pracy, w tym podejmuję środki ostrożności na wypadek awarii technologii
+              informatycznych, a także w zakresie ochrony danych/poufności:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII7" #ankietapytIII7="ngModel" [(ngModel)]="ankieta.pytIII7" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-7-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-7-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-7-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-7-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-7-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                <div><h4>10)	W moim środowisku naukowym NIE spotykam się z przejawami dyskryminacji (np. ze względu na płeć, wiek, pochodzenie etniczne, narodowe lub społeczne, religię lub wyznanie, orientację seksualną, język, niepełnosprawność, przekonania polityczne oraz status społeczny bądź materialny):</h4></div>
-                                <mat-radio-group type="text" name="pytIII10" #ankietapytIII10="ngModel" [(ngModel)]="ankieta.pytIII10" id="buttony1">
-                                    <mat-radio-button class="buttony1-margin"value="III-10-a">zdecydowanie się zgadzam</mat-radio-button>
-                                    <mat-radio-button class="buttony1-margin"value="III-10-b">zgadzam się</mat-radio-button>
-                                    <mat-radio-button class="buttony1-margin"value="III-10-c">nie mam zdania</mat-radio-button>
-                                    <mat-radio-button class="buttony1-margin"value="III-10-d">nie zgadzam się</mat-radio-button>
-                                    <mat-radio-button class="buttony1-margin"value="III-10-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                  </mat-radio-group>
+          <div>
+            <h4>8) Kładę nacisk na to, aby wyniki moich badań były rozpowszechniane (np. poprzez „newsy” na stronie internetowej
+              Instytutu) i wykorzystywane (np. komercyjnie):</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII8" #ankietapytIII8="ngModel" [(ngModel)]="ankieta.pytIII8" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-8-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-8-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-8-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-8-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-8-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                  <div><h4>11)	W moim Instytucie istnieje system oceny pracowników i ich wyników zawodowych przeprowadzany w sposób przejrzysty przez niezależną komisję:</h4></div>
-                                  <mat-radio-group type="text" name="pytIII11" #ankietapytIII11="ngModel" [(ngModel)]="ankieta.pytIII11" id="buttony1">
-                                      <mat-radio-button class="buttony1-margin"value="III-11-a">zdecydowanie się zgadzam</mat-radio-button>
-                                      <mat-radio-button class="buttony1-margin"value="III-11-b">zgadzam się</mat-radio-button>
-                                      <mat-radio-button class="buttony1-margin"value="III-11-c">nie mam zdania</mat-radio-button>
-                                      <mat-radio-button class="buttony1-margin"value="III-11-d">nie zgadzam się</mat-radio-button>
-                                      <mat-radio-button class="buttony1-margin"value="III-11-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                    </mat-radio-group>
+          <div>
+            <h4>9) Zależy mi na tym, aby wyniki moich badań docierały do ogółu społeczeństwa i były zrozumiałe dla osób nie będących
+              specjalistami:
+            </h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII9" #ankietapytIII9="ngModel" [(ngModel)]="ankieta.pytIII9" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-9-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-9-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-9-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-9-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-9-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                    <div><h4>12)	Znam i rozumiem zasady określone w Kodeksie Postępowania przy rekrutacji pracowników naukowych podczas mianowania lub rekrutacji naukowców:</h4></div>
-                                    <mat-radio-group type="text" name="pytIII12" #ankietapytIII12="ngModel" [(ngModel)]="ankieta.pytIII12" id="buttony1">
-                                        <mat-radio-button class="buttony1-margin"value="III-12-a">zdecydowanie się zgadzam</mat-radio-button>
-                                        <mat-radio-button class="buttony1-margin"value="III-12-b">zgadzam się</mat-radio-button>
-                                        <mat-radio-button class="buttony1-margin"value="III-12-c">nie mam zdania</mat-radio-button>
-                                        <mat-radio-button class="buttony1-margin"value="III-12-d">nie zgadzam się</mat-radio-button>
-                                        <mat-radio-button class="buttony1-margin"value="III-12-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                      </mat-radio-group>
+          <div>
+            <h4>10) W moim środowisku naukowym NIE spotykam się z przejawami dyskryminacji (np. ze względu na płeć, wiek, pochodzenie
+              etniczne, narodowe lub społeczne, religię lub wyznanie, orientację seksualną, język, niepełnosprawność, przekonania
+              polityczne oraz status społeczny bądź materialny):</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII10" #ankietapytIII10="ngModel" [(ngModel)]="ankieta.pytIII10" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-10-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-10-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-10-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-10-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-10-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                      <div><h4>13)	Rekrutacja na stanowiska naukowe prowadzona w MIR kładzie nacisk na otwarte i przejrzyste procedury, oparte o kwalifikacje kandydatów:</h4></div>
-                                      <mat-radio-group type="text" name="pytIII13" #ankietapytIII13="ngModel" [(ngModel)]="ankieta.pytIII13" id="buttony1">
-                                          <mat-radio-button class="buttony1-margin"value="III-13-a">zdecydowanie się zgadzam</mat-radio-button>
-                                          <mat-radio-button class="buttony1-margin"value="III-13-b">zgadzam się</mat-radio-button>
-                                          <mat-radio-button class="buttony1-margin"value="III-13-c">nie mam zdania</mat-radio-button>
-                                          <mat-radio-button class="buttony1-margin"value="III-13-d">nie zgadzam się</mat-radio-button>
-                                          <mat-radio-button class="buttony1-margin"value="III-13-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                        </mat-radio-group>
+          <div>
+            <h4>11) W moim Instytucie istnieje system oceny pracowników i ich wyników zawodowych przeprowadzany w sposób przejrzysty
+              przez niezależną komisję:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII11" #ankietapytIII11="ngModel" [(ngModel)]="ankieta.pytIII11" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-11-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-11-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-11-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-11-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-11-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                        <div><h4>14)	Komisje rekrutacyjne dokonujące doboru kandydatów na stanowiska naukowe w MIR mają ku temu odpowiednie doświadczenie i przygotowanie, a także stosują szeroką gamę praktyk selekcji kandydatów:</h4></div>
-                                        <mat-radio-group type="text" name="pytIII14" #ankietapytIII14="ngModel" [(ngModel)]="ankieta.pytIII14" id="buttony1">
-                                            <mat-radio-button class="buttony1-margin"value="III-14-a">zdecydowanie się zgadzam</mat-radio-button>
-                                            <mat-radio-button class="buttony1-margin"value="III-14-b">zgadzam się</mat-radio-button>
-                                            <mat-radio-button class="buttony1-margin"value="III-14-c">nie mam zdania</mat-radio-button>
-                                            <mat-radio-button class="buttony1-margin"value="III-14-d">nie zgadzam się</mat-radio-button>
-                                            <mat-radio-button class="buttony1-margin"value="III-14-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                          </mat-radio-group>
+          <div>
+            <h4>12) Znam i rozumiem zasady określone w Kodeksie Postępowania przy rekrutacji pracowników naukowych podczas mianowania
+              lub rekrutacji naukowców:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII12" #ankietapytIII12="ngModel" [(ngModel)]="ankieta.pytIII12" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-12-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-12-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-12-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-12-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-12-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                          <div><h4>15)	Kandydaci rekrutowani do MIR są informowani o kryteriach wyboru, ilości dostępnych stanowisk oraz perspektywach rozwoju zawodowego. Po zakończeniu procesu rekrutacji, kandydatów powiadamia się o mocnych i słabych stronach ich podań:</h4></div>
-                                          <mat-radio-group type="text" name="pytIII15" #ankietapytIII15="ngModel" [(ngModel)]="ankieta.pytIII15" id="buttony1">
-                                              <mat-radio-button class="buttony1-margin"value="III-15-a">zdecydowanie się zgadzam</mat-radio-button>
-                                              <mat-radio-button class="buttony1-margin"value="III-15-b">zgadzam się</mat-radio-button>
-                                              <mat-radio-button class="buttony1-margin"value="III-15-c">nie mam zdania</mat-radio-button>
-                                              <mat-radio-button class="buttony1-margin"value="III-15-d">nie zgadzam się</mat-radio-button>
-                                              <mat-radio-button class="buttony1-margin"value="III-15-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                            </mat-radio-group>
+          <div>
+            <h4>13) Rekrutacja na stanowiska naukowe prowadzona w MIR kładzie nacisk na otwarte i przejrzyste procedury, oparte
+              o kwalifikacje kandydatów:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII13" #ankietapytIII13="ngModel" [(ngModel)]="ankieta.pytIII13" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-13-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-13-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-13-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-13-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-13-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                            <div><h4>16)	W ocenie pracownika naukowego MIR brane są pod uwagę nie tylko wskaźniki bibliometryczne, jak np. liczba publikacji, lecz również inne kryteria, np. opieka naukowa, praca zespołowa, transfer wiedzy, zarządzanie badaniami naukowymi oraz działania w zakresie innowacji i szerzenia świadomości naukowej w społeczeństwie:</h4></div>
-                                            <mat-radio-group type="text" name="pytIII16" #ankietapytIII16="ngModel" [(ngModel)]="ankieta.pytIII16" id="buttony1">
-                                                <mat-radio-button class="buttony1-margin"value="III-16-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                <mat-radio-button class="buttony1-margin"value="III-16b">zgadzam się</mat-radio-button>
-                                                <mat-radio-button class="buttony1-margin"value="III-16-c">nie mam zdania</mat-radio-button>
-                                                <mat-radio-button class="buttony1-margin"value="III-16-d">nie zgadzam się</mat-radio-button>
-                                                <mat-radio-button class="buttony1-margin"value="III-16-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                              </mat-radio-group>
+          <div>
+            <h4>14) Komisje rekrutacyjne dokonujące doboru kandydatów na stanowiska naukowe w MIR mają ku temu odpowiednie doświadczenie
+              i przygotowanie, a także stosują szeroką gamę praktyk selekcji kandydatów:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII14" #ankietapytIII14="ngModel" [(ngModel)]="ankieta.pytIII14" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-14-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-14-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-14-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-14-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-14-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                              <div><h4>17)	Przerwy w przebiegu kariery lub odstępstwa od porządku chronologicznego w życiorysie nie stanowią problemu w rekrutacji/awansie na stanowiska naukowe w MIR:</h4></div>
-                                              <mat-radio-group type="text" name="pytIII17" #ankietapytIII17="ngModel" [(ngModel)]="ankieta.pytIII17" id="buttony1">
-                                                  <mat-radio-button class="buttony1-margin"value="III-17-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-17-b">zgadzam się</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-17-c">nie mam zdania</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-17-d">nie zgadzam się</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-17-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                </mat-radio-group>
+          <div>
+            <h4>15) Kandydaci rekrutowani do MIR są informowani o kryteriach wyboru, ilości dostępnych stanowisk oraz perspektywach
+              rozwoju zawodowego. Po zakończeniu procesu rekrutacji, kandydatów powiadamia się o mocnych i słabych stronach
+              ich podań:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII15" #ankietapytIII15="ngModel" [(ngModel)]="ankieta.pytIII15" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-15-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-15-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-15-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-15-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-15-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                <div><h4>18)	Doświadczenie w zakresie mobilności, np. pobyt w innym kraju/regionie lub w innym środowisku naukowym jest w moim Instytucie wysoko cenione:</h4></div>
-                                              <mat-radio-group type="text" name="pytIII18" #ankietapytIII18="ngModel" [(ngModel)]="ankieta.pytIII18" id="buttony1">
-                                                  <mat-radio-button class="buttony1-margin"value="III-18-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-18-b">zgadzam się</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-18-c">nie mam zdania</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-18-d">nie zgadzam się</mat-radio-button>
-                                                  <mat-radio-button class="buttony1-margin"value="III-18-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                </mat-radio-group>
+          <div>
+            <h4>16) W ocenie pracownika naukowego MIR brane są pod uwagę nie tylko wskaźniki bibliometryczne, jak np. liczba
+              publikacji, lecz również inne kryteria, np. opieka naukowa, praca zespołowa, transfer wiedzy, zarządzanie badaniami
+              naukowymi oraz działania w zakresie innowacji i szerzenia świadomości naukowej w społeczeństwie:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII16" #ankietapytIII16="ngModel" [(ngModel)]="ankieta.pytIII16" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-16-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-16b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-16-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-16-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-16-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                <div><h4>19)	Uważam, że moje kwalifikacje zawodowe są uznawane zarówno w kraju, jak i za granicą:</h4></div>
-                                                <mat-radio-group type="text" name="pytIII19" #ankietapytIII19="ngModel" [(ngModel)]="ankieta.pytIII19" id="buttony1">
-                                                    <mat-radio-button class="buttony1-margin"value="III-19-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-19-b">zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-19-c">nie mam zdania</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-19-d">nie zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-19-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                  </mat-radio-group>
+          <div>
+            <h4>17) Przerwy w przebiegu kariery lub odstępstwa od porządku chronologicznego w życiorysie nie stanowią problemu
+              w rekrutacji/awansie na stanowiska naukowe w MIR:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII17" #ankietapytIII17="ngModel" [(ngModel)]="ankieta.pytIII17" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-17-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-17-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-17-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-17-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-17-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                  <div><h4>20)	W mojej pracy naukowej doceniane są przede wszystkim umiejętności i osiągnięcia, bez względu np. na renomę instytucji, gdzie uzyskano te kwalifikację lub wiek, w którym się je osiągnęło:</h4></div>
-                                                <mat-radio-group type="text" name="pytIII20" #ankietapytIII20="ngModel" [(ngModel)]="ankieta.pytIII20" id="buttony1">
-                                                    <mat-radio-button class="buttony1-margin"value="III-20-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-20-b">zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-20-c">nie mam zdania</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-20-d">nie zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-20-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                  </mat-radio-group>
+          <div>
+            <h4>18) Doświadczenie w zakresie mobilności, np. pobyt w innym kraju/regionie lub w innym środowisku naukowym jest
+              w moim Instytucie wysoko cenione:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII18" #ankietapytIII18="ngModel" [(ngModel)]="ankieta.pytIII18" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-18-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-18-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-18-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-18-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-18-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                  <div><h4>21)	Znam ścieżkę awansu na kolejne stanowiska naukowe w moim Instytucie:</h4></div>
-                                                <mat-radio-group type="text" name="pytIII21" #ankietapytIII21="ngModel" [(ngModel)]="ankieta.pytIII21" id="buttony1">
-                                                    <mat-radio-button class="buttony1-margin"value="III-21-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-21-b">zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-21-c">nie mam zdania</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-21-d">nie zgadzam się</mat-radio-button>
-                                                    <mat-radio-button class="buttony1-margin"value="III-21-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                  </mat-radio-group>
-                                                  
-                                                  <div><h4>22)	W Instytucie wszyscy pracownicy są uznawani za profesjonalistów i traktowani zgodnie z tym faktem, tak samo na każdym etapie swojej kariery (począwszy od poziomu studiów doktoranckich):</h4></div>
-                                                  <mat-radio-group type="text" name="pytIII22" #ankietapytIII22="ngModel" [(ngModel)]="ankieta.pytIII22" id="buttony1">
-                                                      <mat-radio-button class="buttony1-margin"value="III-22-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                      <mat-radio-button class="buttony1-margin"value="III-22-b">zgadzam się</mat-radio-button>
-                                                      <mat-radio-button class="buttony1-margin"value="III-22-c">nie mam zdania</mat-radio-button>
-                                                      <mat-radio-button class="buttony1-margin"value="III-22-d">nie zgadzam się</mat-radio-button>
-                                                      <mat-radio-button class="buttony1-margin"value="III-22-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                    </mat-radio-group>
+          <div>
+            <h4>19) Uważam, że moje kwalifikacje zawodowe są uznawane zarówno w kraju, jak i za granicą:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII19" #ankietapytIII19="ngModel" [(ngModel)]="ankieta.pytIII19" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-19-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-19-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-19-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-19-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-19-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                    <div><h4>23)	MIR zapewnia odpowiednie środowisko badań, szkolenia i inne możliwości, w tym współpracę na odległość przy pomocy sieci badawczych:</h4></div>
-                                                    <mat-radio-group type="text" name="pytIII23" #ankietapytIII23="ngModel" [(ngModel)]="ankieta.pytIII23" id="buttony1">
-                                                        <mat-radio-button class="buttony1-margin"value="III-23-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                        <mat-radio-button class="buttony1-margin"value="III-23-b">zgadzam się</mat-radio-button>
-                                                        <mat-radio-button class="buttony1-margin"value="III-23-c">nie mam zdania</mat-radio-button>
-                                                        <mat-radio-button class="buttony1-margin"value="III-23-d">nie zgadzam się</mat-radio-button>
-                                                        <mat-radio-button class="buttony1-margin"value="III-23-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                      </mat-radio-group>
+          <div>
+            <h4>20) W mojej pracy naukowej doceniane są przede wszystkim umiejętności i osiągnięcia, bez względu np. na renomę
+              instytucji, gdzie uzyskano te kwalifikację lub wiek, w którym się je osiągnęło:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII20" #ankietapytIII20="ngModel" [(ngModel)]="ankieta.pytIII20" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-20-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-20-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-20-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-20-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-20-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                      <div><h4>24)	Instytut zapewnia odpowiednie warunki pracy umożliwiające osiąganie efektywnych wyników badań naukowych, pogodzenie życia rodzinnego i zawodowego, posiadanie dzieci i rozwój kariery zawodowej: </h4></div>
-                                                      <mat-radio-group type="text" name="pytIII24" #ankietapytIII24="ngModel" [(ngModel)]="ankieta.pytIII24" id="buttony1">
-                                                          <mat-radio-button class="buttony1-margin"value="III-24-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                          <mat-radio-button class="buttony1-margin"value="III-24-b">zgadzam się</mat-radio-button>
-                                                          <mat-radio-button class="buttony1-margin"value="III-24-c">nie mam zdania</mat-radio-button>
-                                                          <mat-radio-button class="buttony1-margin"value="III-24-d">nie zgadzam się</mat-radio-button>
-                                                          <mat-radio-button class="buttony1-margin"value="III-24-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                        </mat-radio-group>
+          <div>
+            <h4>21) Znam ścieżkę awansu na kolejne stanowiska naukowe w moim Instytucie:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII21" #ankietapytIII21="ngModel" [(ngModel)]="ankieta.pytIII21" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-21-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-21-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-21-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-21-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-21-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                        <div><h4>25)	Instytut zapewnia stabilne warunki zatrudnienia:</h4></div>
-                                                        <mat-radio-group type="text" name="pytIII25" #ankietapytIII25="ngModel" [(ngModel)]="ankieta.pytIII25" id="buttony1">
-                                                            <mat-radio-button class="buttony1-margin"value="III-25-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                            <mat-radio-button class="buttony1-margin"value="III-25-b">zgadzam się</mat-radio-button>
-                                                            <mat-radio-button class="buttony1-margin"value="III-25-c">nie mam zdania</mat-radio-button>
-                                                            <mat-radio-button class="buttony1-margin"value="III-25-d">nie zgadzam się</mat-radio-button>
-                                                            <mat-radio-button class="buttony1-margin"value="III-25-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                          </mat-radio-group>
+          <div>
+            <h4>22) W Instytucie wszyscy pracownicy są uznawani za profesjonalistów i traktowani zgodnie z tym faktem, tak samo
+              na każdym etapie swojej kariery (począwszy od poziomu studiów doktoranckich):</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII22" #ankietapytIII22="ngModel" [(ngModel)]="ankieta.pytIII22" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-22-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-22-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-22-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-22-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-22-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                          <div><h4>26)	MIR zapewnia naukowcom sprawiedliwe i atrakcyjne wynagrodzenia:</h4></div>
-                                                          <mat-radio-group type="text" name="pytIII26" #ankietapytIII26="ngModel" [(ngModel)]="ankieta.pytIII26" id="buttony1">
-                                                              <mat-radio-button class="buttony1-margin"value="III-26-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                              <mat-radio-button class="buttony1-margin"value="III-26-b">zgadzam się</mat-radio-button>
-                                                              <mat-radio-button class="buttony1-margin"value="III-26-c">nie mam zdania</mat-radio-button>
-                                                              <mat-radio-button class="buttony1-margin"value="III-26-d">nie zgadzam się</mat-radio-button>
-                                                              <mat-radio-button class="buttony1-margin"value="III-26-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                            </mat-radio-group>
+          <div>
+            <h4>23) MIR zapewnia odpowiednie środowisko badań, szkolenia i inne możliwości, w tym współpracę na odległość przy
+              pomocy sieci badawczych:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII23" #ankietapytIII23="ngModel" [(ngModel)]="ankieta.pytIII23" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-23-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-23-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-23-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-23-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-23-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                            <div><h4>27)	Uważam, że w Instytucie równowaga płci jest zapewniona na każdym szczeblu kadry:</h4></div>
-                                                            <mat-radio-group type="text" name="pytIII27" #ankietapytIII27="ngModel" [(ngModel)]="ankieta.pytIII27" id="buttony1">
-                                                                <mat-radio-button class="buttony1-margin"value="III-27-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                <mat-radio-button class="buttony1-margin"value="III-27-b">zgadzam się</mat-radio-button>
-                                                                <mat-radio-button class="buttony1-margin"value="III-27-c">nie mam zdania</mat-radio-button>
-                                                                <mat-radio-button class="buttony1-margin"value="III-27-d">nie zgadzam się</mat-radio-button>
-                                                                <mat-radio-button class="buttony1-margin"value="III-27-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                              </mat-radio-group>
+          <div>
+            <h4>24) Instytut zapewnia odpowiednie warunki pracy umożliwiające osiąganie efektywnych wyników badań naukowych,
+              pogodzenie życia rodzinnego i zawodowego, posiadanie dzieci i rozwój kariery zawodowej: </h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII24" #ankietapytIII24="ngModel" [(ngModel)]="ankieta.pytIII24" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-24-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-24-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-24-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-24-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-24-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                              <div><h4>28)	Sądzę, że warto wprowadzić w Instytucie strategię rozwoju kariery zawodowej dla naukowców (mentoring policy):</h4></div>
-                                                              <mat-radio-group type="text" name="pytIII28" #ankietapytIII28="ngModel" [(ngModel)]="ankieta.pytIII28" id="buttony1">
-                                                                  <mat-radio-button class="buttony1-margin"value="III-28-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                  <mat-radio-button class="buttony1-margin"value="III-28-b">zgadzam się</mat-radio-button>
-                                                                  <mat-radio-button class="buttony1-margin"value="III-28-c">nie mam zdania</mat-radio-button>
-                                                                  <mat-radio-button class="buttony1-margin"value="III-28-d">nie zgadzam się</mat-radio-button>
-                                                                  <mat-radio-button class="buttony1-margin"value="III-28-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                </mat-radio-group>
+          <div>
+            <h4>25) Instytut zapewnia stabilne warunki zatrudnienia:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII25" #ankietapytIII25="ngModel" [(ngModel)]="ankieta.pytIII25" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-25-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-25-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-25-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-25-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-25-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                                <div><h4>29)	Instytut wspiera współpracę naukowców z przedsiębiorstwami/biznesem/przemysłem:</h4></div>
-                                                                <mat-radio-group type="text" name="pytIII29" #ankietapytIII29="ngModel" [(ngModel)]="ankieta.pytIII29" id="buttony1">
-                                                          <mat-radio-button class="buttony1-margin"value="III-29-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                    <mat-radio-button class="buttony1-margin"value="III-29-b">zgadzam się</mat-radio-button>
-                                                                    <mat-radio-button class="buttony1-margin"value="III-29-c">nie mam zdania</mat-radio-button>
-                                                                    <mat-radio-button class="buttony1-margin"value="III-29-d">nie zgadzam się</mat-radio-button>
-                                                                    <mat-radio-button class="buttony1-margin"value="III-29-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                  </mat-radio-group>
+          <div>
+            <h4>26) MIR zapewnia naukowcom sprawiedliwe i atrakcyjne wynagrodzenia:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII26" #ankietapytIII26="ngModel" [(ngModel)]="ankieta.pytIII26" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-26-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-26-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-26-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-26-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-26-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                                  <div><h4>30)	W Instytucie mogę liczyć na wsparcie mojego rozwoju zawodowego/doradztwo zawodowe:</h4></div>
-                                                                  <mat-radio-group type="text" name="pytIII30" #ankietapytIII30="ngModel" [(ngModel)]="ankieta.pytIII30" id="buttony1">
-                                                            <mat-radio-button class="buttony1-margin"value="III-30-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                      <mat-radio-button class="buttony1-margin"value="III-30-b">zgadzam się</mat-radio-button>
-                                                                      <mat-radio-button class="buttony1-margin"value="III-30-c">nie mam zdania</mat-radio-button>
-                                                                      <mat-radio-button class="buttony1-margin"value="III-30-d">nie zgadzam się</mat-radio-button>
-                                                                      <mat-radio-button class="buttony1-margin"value="III-30-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                    </mat-radio-group>
+          <div>
+            <h4>27) Uważam, że w Instytucie równowaga płci jest zapewniona na każdym szczeblu kadry:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII27" #ankietapytIII27="ngModel" [(ngModel)]="ankieta.pytIII27" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-27-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-27-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-27-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-27-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-27-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                                    <div><h4>31)	Mam dużą wiedzę na temat praw własności intelektualnej:</h4></div>
-                                                                    <mat-radio-group type="text" name="pytIII31" #ankietapytIII31="ngModel" [(ngModel)]="ankieta.pytIII31" id="buttony1">
-                                                              <mat-radio-button class="buttony1-margin"value="III-31-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                        <mat-radio-button class="buttony1-margin"value="III-31-b">zgadzam się</mat-radio-button>
-                                                                        <mat-radio-button class="buttony1-margin"value="III-31-c">nie mam zdania</mat-radio-button>
-                                                                        <mat-radio-button class="buttony1-margin"value="III-31-d">nie zgadzam się</mat-radio-button>
-                                                                        <mat-radio-button class="buttony1-margin"value="III-31-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                      </mat-radio-group>
+          <div>
+            <h4>28) Sądzę, że warto wprowadzić w Instytucie strategię rozwoju kariery zawodowej dla naukowców (mentoring policy):</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII28" #ankietapytIII28="ngModel" [(ngModel)]="ankieta.pytIII28" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-28-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-28-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-28-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-28-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-28-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-                                                                      <div><h4>32)	W moim instytucie docenia się nie tylko autorstwo, ale też współautorstwo prac, patentów itp.:</h4></div>
-                                                                      <mat-radio-group type="text" name="pytIII32" #ankietapytIII32="ngModel" [(ngModel)]="ankieta.pytIII32" id="buttony1">
-                                                                <mat-radio-button class="buttony1-margin"value="III-32-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                          <mat-radio-button class="buttony1-margin"value="III-32-b">zgadzam się</mat-radio-button>
-                                                                          <mat-radio-button class="buttony1-margin"value="III-32-c">nie mam zdania</mat-radio-button>
-                                                                          <mat-radio-button class="buttony1-margin"value="III-32-d">nie zgadzam się</mat-radio-button>
-                                                                          <mat-radio-button class="buttony1-margin"value="III-32-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                        </mat-radio-group>
-                                                                        
-                                                                        <div><h4>33)	Nauczanie jest istotnym sposobem organizacji i upowszechniania wiedzy i z tego względu należy je postrzegać jako cenną możliwość w ramach ścieżki rozwoju zawodowego naukowców:</h4></div>
-                                                                        <mat-radio-group type="text" name="pytIII33" #ankietapytIII33="ngModel" [(ngModel)]="ankieta.pytIII33" id="buttony1">
-                                                                  <mat-radio-button class="buttony1-margin"value="III-33-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                            <mat-radio-button class="buttony1-margin"value="III-33-b">zgadzam się</mat-radio-button>
-                                                                            <mat-radio-button class="buttony1-margin"value="III-33-c">nie mam zdania</mat-radio-button>
-                                                                            <mat-radio-button class="buttony1-margin"value="III-33-d">nie zgadzam się</mat-radio-button>
-                                                                            <mat-radio-button class="buttony1-margin"value="III-33-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                          </mat-radio-group>
-                                                                          
-                                                                          <div><h4>34)	W moim Instytucie funkcjonują procedury zapewniające poufną i nieformalną pomoc w rozwiązywaniu konfliktów związanych z pracą:</h4></div>
-                                                                          <mat-radio-group type="text" name="pytIII34" #ankietapytIII34="ngModel" [(ngModel)]="ankieta.pytIII34" id="buttony1">
-                                                                    <mat-radio-button class="buttony1-margin"value="III-34-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                              <mat-radio-button class="buttony1-margin"value="III-34-b">zgadzam się</mat-radio-button>
-                                                                              <mat-radio-button class="buttony1-margin"value="III-34-c">nie mam zdania</mat-radio-button>
-                                                                              <mat-radio-button class="buttony1-margin"value="III-34-d">nie zgadzam się</mat-radio-button>
-                                                                              <mat-radio-button class="buttony1-margin"value="III-34-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                            </mat-radio-group>
-                                                                            
-                                                                            <div><h4>35)	Naukowcy posiadają przedstawicieli w organach decyzyjnych Instytutu, dzięki czemu ich interesy są reprezentowane oraz aktywnie uczestniczą w pracach MIR:</h4></div>
-                                                                            <mat-radio-group type="text" name="pytIII35" #ankietapytIII35="ngModel" [(ngModel)]="ankieta.pytIII35" id="buttony1">
-                                                                      <mat-radio-button class="buttony1-margin"value="III-35-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                                <mat-radio-button class="buttony1-margin"value="III-35-b">zgadzam się</mat-radio-button>
-                                                                                <mat-radio-button class="buttony1-margin"value="III-35-c">nie mam zdania</mat-radio-button>
-                                                                               <mat-radio-button class="buttony1-margin"value="III-35-d">nie zgadzam się</mat-radio-button>
-                                                                                <mat-radio-button class="buttony1-margin"value="III-35-e">zdecydowanie się nie zgadzam</mat-radio-button>
-                                                                              </mat-radio-group>     
-                                                                          
-                                                                             <div><h4>36)	Relacja przełożony–podwładny / mentor–doktorant powinna być bardziej ustrukturyzowana i obejmować rejestrowanie postępu wszelkich badań oraz ich wyników, uzyskiwanie informacji zwrotnych poprzez sprawozdania i seminaria, pracę wg ustalonych harmonogramów itp.</h4></div>
-                                                                              <mat-radio-group type="text" name="pytIII36" #ankietapytIII36="ngModel" [(ngModel)]="ankieta.pytIII36" id="buttony1">
-                                                            <mat-radio-button class="buttony1-margin"value="III-36-a">zdecydowanie się zgadzam</mat-radio-button>
-                                                                                  <mat-radio-button class="buttony1-margin"value="III-36-b">zgadzam się</mat-radio-button>
-                                                                                  <mat-radio-button class="buttony1-margin"value="III-36-c">nie mam zdania</mat-radio-button>
-                                                                                  <mat-radio-button class="buttony1-margin"value="III-36-d">nie zgadzam się</mat-radio-button>
-               <mat-radio-button class="buttony1-margin"value="III-36-e">zdecydowanie się nie zgadzam</mat-radio-button>
- </mat-radio-group>
+          <div>
+            <h4>29) Instytut wspiera współpracę naukowców z przedsiębiorstwami/biznesem/przemysłem:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII29" #ankietapytIII29="ngModel" [(ngModel)]="ankieta.pytIII29" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-29-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-29-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-29-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-29-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-29-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
- <div><h4>37)	W moim Instytucie starsi pracownicy naukowi budują konstruktywne i pozytywne relacje z początkującymi pracownikami naukowymi celem efektywnego transferu wiedzy, pomyślnego rozwoju kariery tych naukowców:</h4></div>
- <mat-radio-group type="text" name="pytIII37" #ankietapytIII37="ngModel" [(ngModel)]="ankieta.pytIII37" id="buttony1">
-<mat-radio-button class="buttony1-margin"value="III-37-a">zdecydowanie się zgadzam</mat-radio-button>
-     <mat-radio-button class="buttony1-margin"value="III-37-b">zgadzam się</mat-radio-button>
-     <mat-radio-button class="buttony1-margin"value="III-37-c">nie mam zdania</mat-radio-button>
-     <mat-radio-button class="buttony1-margin"value="III-37-d">nie zgadzam się</mat-radio-button>
-     <mat-radio-button class="buttony1-margin"value="III-37-e">zdecydowanie się nie zgadzam</mat-radio-button>
-   </mat-radio-group>
+          <div>
+            <h4>30) W Instytucie mogę liczyć na wsparcie mojego rozwoju zawodowego/doradztwo zawodowe:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII30" #ankietapytIII30="ngModel" [(ngModel)]="ankieta.pytIII30" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-30-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-30-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-30-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-30-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-30-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-   <div><h4>38)	Na wszystkich etapach kariery zawodowej szukam możliwości stałego rozwoju poprzez aktualizację i poszerzanie zakresu swoich umiejętności i kwalifikacji:</h4></div>
-   <mat-radio-group type="text" name="pytIII38" #ankietapytIII38="ngModel" [(ngModel)]="ankieta.pytIII38" id="buttony1">
-<mat-radio-button class="buttony1-margin"value="III-38-a">zdecydowanie się zgadzam</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-38-b">zgadzam się</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-38-c">nie mam zdania</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-38-d">nie zgadzam się</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-38-e">zdecydowanie się nie zgadzam</mat-radio-button>
-     </mat-radio-group>
+          <div>
+            <h4>31) Mam dużą wiedzę na temat praw własności intelektualnej:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII31" #ankietapytIII31="ngModel" [(ngModel)]="ankieta.pytIII31" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-31-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-31-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-31-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-31-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-31-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-     <div><h4>39)	Instytut daje mi możliwość rozwoju zawodowego, podnoszenia kwalifikacji/umiejętności:</h4></div>
-   <mat-radio-group type="text" name="pytIII39" #ankietapytIII39="ngModel" [(ngModel)]="ankieta.pytIII39" id="buttony1">
-<mat-radio-button class="buttony1-margin"value="III-39-a">zdecydowanie się zgadzam</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-39-b">zgadzam się</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-39-c">nie mam zdania</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-39-d">nie zgadzam się</mat-radio-button>
-       <mat-radio-button class="buttony1-margin"value="III-39-e">zdecydowanie się nie zgadzam</mat-radio-button>
-     </mat-radio-group>
+          <div>
+            <h4>32) W moim instytucie docenia się nie tylko autorstwo, ale też współautorstwo prac, patentów itp.:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII32" #ankietapytIII32="ngModel" [(ngModel)]="ankieta.pytIII32" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-32-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-32-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-32-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-32-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-32-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-     <div><h4>40)	Młodzi naukowcy w MIR mogą liczyć na pomoc ze strony opiekunów naukowych, którzy dysponują czasem, wiedzą, doświadczeniem, kompetencjami i zaangażowaniem, dzięki którym mogą zaoferować stażystom odpowiednie wsparcie:</h4></div>
-     <mat-radio-group type="text" name="pytIII40" #ankietapytIII40="ngModel" [(ngModel)]="ankieta.pytIII40" id="buttony1">
-  <mat-radio-button class="buttony1-margin"value="III-40-a">zdecydowanie się zgadzam</mat-radio-button>
-         <mat-radio-button class="buttony1-margin"value="III-40-b">zgadzam się</mat-radio-button>
-         <mat-radio-button class="buttony1-margin"value="III-40-c">nie mam zdania</mat-radio-button>
-         <mat-radio-button class="buttony1-margin"value="III-40-d">nie zgadzam się</mat-radio-button>
-         <mat-radio-button class="buttony1-margin"value="III-40-e">zdecydowanie się nie zgadzam</mat-radio-button>
-       </mat-radio-group>     
-          
-<br>
+          <div>
+            <h4>33) Nauczanie jest istotnym sposobem organizacji i upowszechniania wiedzy i z tego względu należy je postrzegać
+              jako cenną możliwość w ramach ścieżki rozwoju zawodowego naukowców:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII33" #ankietapytIII33="ngModel" [(ngModel)]="ankieta.pytIII33" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-33-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-33-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-33-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-33-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-33-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
-       <div><h4>Jeśli chciał(a)byś dodać jakieś uwagi, sugestie, zgłosić potrzebę szkolenia lub inny problem, napisz to poniżej (ankieta jest anonimowa, wszelkie komentarze są dla nas bardzo cenne):</h4></div>
-       <mat-form-field>
-          <input matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
-        </mat-form-field>
+          <div>
+            <h4>34) W moim Instytucie funkcjonują procedury zapewniające poufną i nieformalną pomoc w rozwiązywaniu konfliktów
+              związanych z pracą:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII34" #ankietapytIII34="ngModel" [(ngModel)]="ankieta.pytIII34" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-34-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-34-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-34-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-34-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-34-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
+          <div>
+            <h4>35) Naukowcy posiadają przedstawicieli w organach decyzyjnych Instytutu, dzięki czemu ich interesy są reprezentowane
+              oraz aktywnie uczestniczą w pracach MIR:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII35" #ankietapytIII35="ngModel" [(ngModel)]="ankieta.pytIII35" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-35-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-35-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-35-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-35-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-35-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
 
+          <div>
+            <h4>36) Relacja przełożony–podwładny / mentor–doktorant powinna być bardziej ustrukturyzowana i obejmować rejestrowanie
+              postępu wszelkich badań oraz ich wyników, uzyskiwanie informacji zwrotnych poprzez sprawozdania i seminaria,
+              pracę wg ustalonych harmonogramów itp.</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII36" #ankietapytIII36="ngModel" [(ngModel)]="ankieta.pytIII36" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-36-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-36-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-36-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-36-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-36-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+
+          <div>
+            <h4>37) W moim Instytucie starsi pracownicy naukowi budują konstruktywne i pozytywne relacje z początkującymi pracownikami
+              naukowymi celem efektywnego transferu wiedzy, pomyślnego rozwoju kariery tych naukowców:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII37" #ankietapytIII37="ngModel" [(ngModel)]="ankieta.pytIII37" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-37-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-37-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-37-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-37-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-37-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+
+          <div>
+            <h4>38) Na wszystkich etapach kariery zawodowej szukam możliwości stałego rozwoju poprzez aktualizację i poszerzanie
+              zakresu swoich umiejętności i kwalifikacji:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII38" #ankietapytIII38="ngModel" [(ngModel)]="ankieta.pytIII38" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-38-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-38-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-38-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-38-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-38-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+
+          <div>
+            <h4>39) Instytut daje mi możliwość rozwoju zawodowego, podnoszenia kwalifikacji/umiejętności:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII39" #ankietapytIII39="ngModel" [(ngModel)]="ankieta.pytIII39" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-39-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-39-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-39-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-39-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-39-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+
+          <div>
+            <h4>40) Młodzi naukowcy w MIR mogą liczyć na pomoc ze strony opiekunów naukowych, którzy dysponują czasem, wiedzą,
+              doświadczeniem, kompetencjami i zaangażowaniem, dzięki którym mogą zaoferować stażystom odpowiednie wsparcie:</h4>
+          </div>
+          <mat-radio-group type="text" name="pytIII40" #ankietapytIII40="ngModel" [(ngModel)]="ankieta.pytIII40" id="buttony1">
+            <mat-radio-button class="buttony1-margin" value="III-40-a">zdecydowanie się zgadzam</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-40-b">zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-40-c">nie mam zdania</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-40-d">nie zgadzam się</mat-radio-button>
+            <mat-radio-button class="buttony1-margin" value="III-40-e">zdecydowanie się nie zgadzam</mat-radio-button>
+          </mat-radio-group>
+
+          <br>
+
+          <div>
+            <h4>Jeśli chciał(a)byś dodać jakieś uwagi, sugestie, zgłosić potrzebę szkolenia lub inny problem, napisz to poniżej
+              (ankieta jest anonimowa, wszelkie komentarze są dla nas bardzo cenne):</h4>
+          </div>
+          <mat-form-field>
+            <input matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
+          </mat-form-field>
 
 
           <br>
-          <button mat-raised-button color="warn" type="submit" (click)="zapisz(ankietaForm)">Zapisz dane.</button>
-<br>
+          <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz(ankietaForm)">Zapisz dane.</button>
+          <br>
+          <p *ngIf="czyZapisana">Dane zostały zapisane.</p>
         </form>
       </mat-card-content>
     </mat-card>

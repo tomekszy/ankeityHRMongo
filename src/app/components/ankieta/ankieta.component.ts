@@ -61,6 +61,9 @@ export class AnkietaComponent implements OnInit {
     aktualnaData: new Date()
   };
   id: string;
+  idDoWpisu: string;
+  czyZapisana: boolean;
+  czyPoprzedniaAnkieta: boolean;
 
 
   constructor(
@@ -69,10 +72,21 @@ export class AnkietaComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.ankietaService.generateId();
+    this.czyZapisana = false;
+    this.czyPoprzedniaAnkieta = false;
   }
 
   zapisz() {
     this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
+    this.czyZapisana = true;
+  }
+
+  pobierzAnkiete(id) {
+    console.log(id);
+    this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
+      this.ankieta = ankieta;
+    });
+    this.id = id;
   }
 
 
