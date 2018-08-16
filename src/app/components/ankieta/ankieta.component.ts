@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { AnkietaService } from '../../services/ankieta.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-ankieta',
@@ -57,17 +58,41 @@ export class AnkietaComponent implements OnInit {
     pytIII39: '',
     pytIII40: '',
     uwagi: '',
+    aktualnaData: new Date()
   };
+  id: string;
+  idDoWpisu: string;
+  private _czyZapisana: boolean;
+  public get czyZapisana(): boolean {
+    return this._czyZapisana;
+  }
+  public set czyZapisana(value: boolean) {
+    this._czyZapisana = value;
+  }
+  czyPoprzedniaAnkieta: boolean;
+  czyZlaAnkieta: boolean;
 
-  constructor() { }
+  constructor(
+    private ankietaService: AnkietaService
+  ) { }
 
   ngOnInit() {
+    this.id = this.ankietaService.generateId();
+    this.czyZapisana = false;
+    this.czyPoprzedniaAnkieta = false;
+    this.czyZlaAnkieta = false;
   }
 
-  zapisz(form) {
-
+  zapisz() {
+    this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
+    this.czyZapisana = true;
   }
 
-
-
+  pobierzAnkiete(id) {
+    console.log(id);
+    this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
+      this.ankieta = ankieta;
+    });
+    this.id = id;
+  }
 }
