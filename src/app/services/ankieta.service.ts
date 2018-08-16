@@ -27,13 +27,19 @@ export class AnkietaService {
   }
 
   pobierzAnkiete(id) {
-    this.ankietaObs = this.afs
-      .collection('Ankiety')
-      .doc(id)
-      .valueChanges();
-    if (this.ankietaObs === undefined) {
-      console.log(this.ankietaObs)
+    // if (id === null) {
+    //   this.ankietaObs = undefined;
+    // } else {
+    try {
+      this.ankietaObs = this.afs
+        .collection('Ankiety')
+        .doc(id)
+        .valueChanges();
     }
+    catch {
+      this.ankietaObs = undefined;
+    }
+    // }
     return this.ankietaObs
   }
 

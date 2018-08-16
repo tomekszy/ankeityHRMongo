@@ -8,7 +8,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./ankieta.component.css']
 })
 export class AnkietaComponent implements OnInit {
-  ankieta = {
+  ankieta: any;
+  ankietaPusta = {
     pytI1: '',
     pytI2: '',
     pytI3: '',
@@ -71,6 +72,7 @@ export class AnkietaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.ankieta = this.ankietaPusta;
     this.id = this.ankietaService.generateId();
     this.czyZapisana = false;
     this.czyPoprzedniaAnkieta = false;
@@ -84,10 +86,18 @@ export class AnkietaComponent implements OnInit {
 
   pobierzAnkiete(id) {
     console.log(id);
-    this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
-      this.ankieta = ankieta;
-    });
-    this.id = id;
+    if (id === undefined) {
+      this.ankieta = this.ankietaPusta;
+    } else {
+      this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
+        if (ankieta === undefined) {
+          this.ankieta = this.ankietaPusta;
+        } else {
+          this.ankieta = ankieta;
+          this.id = id;
+        }
+      });
+    }
   }
 
 
