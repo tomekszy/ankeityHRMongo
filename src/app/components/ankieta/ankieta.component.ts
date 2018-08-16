@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AnkietaService } from '../../services/ankieta.service'
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ankieta',
@@ -11,8 +12,8 @@ export class AnkietaComponent implements OnInit {
   ankieta: any;
   ankietaPusta = {
     pytI1: '',
-    pytI2: '',
-    pytI3: '',
+    pytI2: [],
+    pytI3: [],
     pytII1: '',
     pytII2: '',
     pytII3: '',
@@ -67,8 +68,23 @@ export class AnkietaComponent implements OnInit {
   czyPoprzedniaAnkieta: boolean;
   czyZlaAnkieta: boolean;
 
+  pytaniaI2 = [
+    { value: 'wdrazajace-zasadyEKN', viewValue: 'wdrażające zasady Europejskiej Karty Naukowca' },
+    { value: 'wdrazajace-zasadyKodeksu', viewValue: 'wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
+    { value: 'zapewniajacenaukowcom', viewValue: 'zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery' },
+    { value: 'zatrudnijacepowyzej5', viewValue: 'zatrudniające powyżej 5 pracowników naukowych z zagranicy' }
+  ];
+  pytaniaI3 = [
+    { value: 'stworzenieporadnika', viewValue: 'stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”' },
+    { value: 'przeprowadzenieszkolenia', viewValue: 'przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
+    { value: 'wprowadzeniedostopki', viewValue: 'wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo' },
+    { value: 'zorganizowanieseminarium', viewValue: 'zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). ' }
+  ];
+  form: FormGroup;
+
   constructor(
-    private ankietaService: AnkietaService
+    private ankietaService: AnkietaService,
+    // private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -77,6 +93,11 @@ export class AnkietaComponent implements OnInit {
     this.czyZapisana = false;
     this.czyPoprzedniaAnkieta = false;
     this.czyZlaAnkieta = false;
+    // this.form = this.formBuilder.group({
+    //   useremail: new FormArray([
+    //     new FormControl('', Validators.required)
+    //   ])
+    // });
   }
 
   zapisz() {
@@ -88,13 +109,19 @@ export class AnkietaComponent implements OnInit {
     console.log(id);
     if (id === undefined) {
       this.ankieta = this.ankietaPusta;
+      this.id = this.ankietaService.generateId();
+      this.czyZlaAnkieta = true;
     } else {
       this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
         if (ankieta === undefined) {
           this.ankieta = this.ankietaPusta;
+          this.id = this.ankietaService.generateId();
+          this.czyZlaAnkieta = true;
         } else {
           this.ankieta = ankieta;
           this.id = id;
+          this.czyZlaAnkieta = false;
+          this.czyPoprzedniaAnkieta = false;
         }
       });
     }
