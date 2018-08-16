@@ -1,5 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
+<<<<<<< HEAD
 import { AnkietaService } from '../../services/ankieta.service';
+=======
+import { AnkietaService } from '../../services/ankieta.service'
+>>>>>>> 1fe924d745d458898a8e7d384b745ae2698ea7b9
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -62,6 +66,7 @@ export class AnkietaComponent implements OnInit {
   };
   id: string;
   idDoWpisu: string;
+<<<<<<< HEAD
   private _czyZapisana: boolean;
   public get czyZapisana(): boolean {
     return this._czyZapisana;
@@ -69,6 +74,9 @@ export class AnkietaComponent implements OnInit {
   public set czyZapisana(value: boolean) {
     this._czyZapisana = value;
   }
+=======
+  czyZapisana: boolean;
+>>>>>>> 1fe924d745d458898a8e7d384b745ae2698ea7b9
   czyPoprzedniaAnkieta: boolean;
   czyZlaAnkieta: boolean;
 
@@ -86,6 +94,17 @@ export class AnkietaComponent implements OnInit {
   zapisz() {
     this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
     this.czyZapisana = true;
+<<<<<<< HEAD
+=======
+  }
+
+  pobierzAnkiete(id) {
+    console.log(id);
+    this.ankietaService.pobierzAnkiete(id).subscribe(ankieta => {
+      this.ankieta = ankieta;
+    });
+    this.id = id;
+>>>>>>> 1fe924d745d458898a8e7d384b745ae2698ea7b9
   }
 
   pobierzAnkiete(id) {
