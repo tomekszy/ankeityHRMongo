@@ -1,4 +1,3 @@
-import {Observable} from 'rxjs';
 import { Injectable } from '@angular/core';
 import {
   AngularFirestore,
@@ -6,15 +5,12 @@ import {
   AngularFirestoreDocument,
   combineChange
 } from 'angularfire2/firestore';
-
+import { Observable } from 'rxjs/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnkietaService {
-  generateId(): any {
-    throw new Error("Method not implemented.");
-  }
   ankietaCollection: AngularFirestoreCollection<any>;
   ankietyObs: Observable<any[]>;
   ankietaObs: Observable<any>;
@@ -31,18 +27,19 @@ export class AnkietaService {
   }
 
   pobierzAnkiete(id) {
-    this.ankietaObs = this.afs
-      .collection('Ankiety')
-      .doc(id)
-      .valueChanges();
-    if (this.ankietaObs === undefined) {
-      console.log(this.ankietaObs);
+    // if (id === null) {
+    //   this.ankietaObs = undefined;
+    // } else {
+    try {
+      this.ankietaObs = this.afs
+        .collection('Ankiety')
+        .doc(id)
+        .valueChanges();
+    } catch {
+      this.ankietaObs = undefined;
     }
+    // }
     return this.ankietaObs;
-=======
-      console.log(this.ankietaObs)
-    }
-    
   }
 
   zapiszAnkiete(ankieta, id) {
@@ -66,9 +63,9 @@ export class AnkietaService {
       .delete();
   }
 
-
   generateId(): string {
     const pushkey = this.afs.createId();
     return pushkey;
   }
+
 }
