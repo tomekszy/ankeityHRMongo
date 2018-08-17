@@ -27,6 +27,13 @@ mat-card {
   padding-bottom: 10px;
 }
 
+.buttony2 {
+  padding-top: 55px;
+  padding-bottom: 10px;
+  background-color: #de0c0c;
+
+}
+
 .bkrs {
   margin-bottom: 15px;
 }
@@ -79,5 +86,5 @@ mat-card-header {
   padding-top: 5px;
   padding-bottom: 10px;
   line-height: 20px;
-  text align: justify;
+  text-align: justify;
 }

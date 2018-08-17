@@ -12,22 +12,28 @@ export class AnkietaComponent implements OnInit {
   ankieta: any;
   ankietaPusta = {
     pytI1: '',
-    pytI2: [],
-    pytI3: [],
+    pytI2a: '',
+    pytI2b: '',
+    pytI2c: '',
+    pytI2d: '',
+    pytI3a:  '',
+    pytI3b:  '',
+    pytI3c:  '',
+    pytI3d:  '',
     pytII1: '',
     pytII2: '',
     pytII3: '',
     pytII4: '',
     pytII5: '',
-    pytIII1: '',
-    pytIII2: '',
-    pytIII3: '',
-    pytIII4: '',
-    pytIII5: '',
-    pytIII6: '',
-    pytIII7: '',
-    pytIII8: '',
-    pytIII9: '',
+    pytIII01: '',
+    pytIII02: '',
+    pytIII03: '',
+    pytIII04: '',
+    pytIII05: '',
+    pytIII06: '',
+    pytIII07: '',
+    pytIII08: '',
+    pytIII09: '',
     pytIII10: '',
     pytIII11: '',
     pytIII12: '',
@@ -68,27 +74,36 @@ export class AnkietaComponent implements OnInit {
   czyPoprzedniaAnkieta: boolean;
   czyZlaAnkieta: boolean;
 
-  pytaniaI2 = [
-    { value: 'wdrazajace-zasadyEKN', viewValue: 'wdrażające zasady Europejskiej Karty Naukowca' },
-    { value: 'wdrazajace-zasadyKodeksu', viewValue: 'wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
-    { value: 'zapewniajacenaukowcom', viewValue: 'zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery' },
-    { value: 'zatrudnijacepowyzej5', viewValue: 'zatrudniające powyżej 5 pracowników naukowych z zagranicy' }
-  ];
-  pytaniaI3 = [
-    // tslint:disable-next-line:max-line-length
-    { value: 'stworzenieporadnika', viewValue: 'stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”' },
-    // tslint:disable-next-line:max-line-length
-    { value: 'przeprowadzenieszkolenia', viewValue: 'przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
-    { value: 'wprowadzeniedostopki', viewValue: 'wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo' },
-    // tslint:disable-next-line:max-line-length
-    { value: 'zorganizowanieseminarium', viewValue: 'zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). ' }
-  ];
+  // pytaniaI2 = [
+  //   { value: 'wdrazajace-zasadyEKN', viewValue: 'wdrażające zasady Europejskiej Karty Naukowca' },
+  //   { value: 'wdrazajace-zasadyKodeksu', viewValue: 'wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
+  //   { value: 'zapewniajacenaukowcom', viewValue: 'zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery' },
+  //   { value: 'zatrudnijacepowyzej5', viewValue: 'zatrudniające powyżej 5 pracowników naukowych z zagranicy' }
+  // ];
+  // pytaniaI3 = [
+  //   // tslint:disable-next-line:max-line-length
+  // tslint:disable-next-line:max-line-length
+  //   { value: 'stworzenieporadnika', viewValue: 'stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”' },
+  //   // tslint:disable-next-line:max-line-length
+  // tslint:disable-next-line:max-line-length
+  //   { value: 'przeprowadzenieszkolenia', viewValue: 'przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych' },
+  //   { value: 'wprowadzeniedostopki', viewValue: 'wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo' },
+  //   // tslint:disable-next-line:max-line-length
+  // tslint:disable-next-line:max-line-length
+  //   { value: 'zorganizowanieseminarium', viewValue: 'zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). ' }
+  // ];
   form: FormGroup;
 
   constructor(
     private ankietaService: AnkietaService,
     // private formBuilder: FormBuilder
   ) { }
+
+  // private newMethod() {
+
+
+  //   return 'wdrazajace-zasadyEKN';
+  // }
 
   ngOnInit() {
     this.ankieta = this.ankietaPusta;

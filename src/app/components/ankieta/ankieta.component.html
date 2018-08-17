@@ -17,7 +17,7 @@
       </mat-card-header>
       <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
-          <br> Numer ankiety: {{ id }}
+          <b>Numer ankiety:</b> {{ id }}
           <br>
           <div *ngIf="czyPoprzedniaAnkieta">
             <mat-form-field>
@@ -26,7 +26,8 @@
             <button mat-button (click)="pobierzAnkiete(idDoWpisu)">Pobierz ankietę</button>
             <p *ngIf="czyZlaAnkieta">Niepoprawny numer ankiety</p>
           </div>
-          <button mat-button (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button>
+          
+          <button mat-raised-button color="warn" (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button>
 
           <div>
             <h3>
@@ -56,19 +57,42 @@
             <mat-checkbox value="wdrazajace-zasadyKodeksu">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
             <mat-checkbox value="zapewniajacenaukowcom">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
             <mat-checkbox value="zatrudnijacepowyzej5">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
-          </mat-radio-group> -->
+          </mat-radio-group>  -->
 
-          <div *ngFor="let pytanieI2 of pytaniaI2; let i=index" id="checkboxy">
+          <mat-radio-group type="text" id="checkboxy">
+            <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" ng-true-value="'wdrazajace-zasadyEKN'" ng-false-value="''">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
+            <mat-checkbox name="pytI2b" #ankietapytI2b="ngModel" [(ngModel)]="ankieta.pytI2b"  value="wdrazajace-zasadyKodeksu">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+            <mat-checkbox name="pytI2c" #ankietapytI2c="ngModel" [(ngModel)]="ankieta.pytI2c" value="zapewniajacenaukowcom">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
+            <mat-checkbox name="pytI2d" #ankietapytI2d="ngModel" [(ngModel)]="ankieta.pytI2d" value="zatrudnijacepowyzej5">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
+          </mat-radio-group> 
+
+         
+
+          <!-- pytI2a = {{ankieta.pytI2a}}
+          pytI2b = {{ankieta.pytI2a}}
+          pytI2c = {{ankieta.pytI2c}}
+          pytI2d = {{ankieta.pytI2d}}  -->
+          <!-- <div *ngFor="let pytanieI2 of pytaniaI2; let i=index" id="checkboxy">
             <mat-checkbox [value]="pytanieI2.value" name="pytI2">{{ pytanieI2.viewValue }}</mat-checkbox>
-          </div>
+          </div> -->
 
 
           <div>
             <h4>3) Jakie działania były realizowane w MIR-PIB w ramach realizacji strategii Human Resources Strategy for Researchers?
               /zaznacz wszystkie poprawne odpowiedzi/</h4>
           </div>
+          <mat-radio-group type="text" id="checkboxy">
+            <mat-checkbox name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a"  selected= "true" value="stworzenieporadnika">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
+            <mat-checkbox name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b"  selected= "true" value="przeprowadzenieszkolenia">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
+              na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
+              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu
+              postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+            <mat-checkbox name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" selected= "true" value="wprowadzeniedostopki">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
+            <mat-checkbox name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d"  selected= "true" value="zorganizowanieseminarium">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
+              przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
+          </mat-radio-group> 
 
-          <mat-radio-group type="text" name="pytI3" #ankietapytI3="ngModel" [(ngModel)]="ankieta.pytI3" id="checkboxy">
+          <!-- <mat-radio-group type="text" name="pytI3" #ankietapytI3="ngModel" [(ngModel)]="ankieta.pytI3" id="checkboxy">
             <mat-checkbox value="stworzenieporadnika">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
             <mat-checkbox value="przeprowadzenieszkolenia">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
               na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
@@ -77,7 +101,7 @@
             <mat-checkbox value="wprowadzeniedostopki">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
             <mat-checkbox value="zorganizowanieseminarium">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
               przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
-          </mat-radio-group>
+          </mat-radio-group> -->
           <br>
           <div>
             <h3>
@@ -149,7 +173,7 @@
           <div>
             <h4>1) Moją pracę w Instytucie charakteryzuje wolność badań naukowych:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII1" #ankietapytIII1="ngModel" [(ngModel)]="ankieta.pytIII1" id="buttony1">
+          <mat-radio-group type="text" name="pytIII01" #ankietapytIII01="ngModel" [(ngModel)]="ankieta.pytIII01" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -159,7 +183,7 @@
           <div>
             <h4>2) W moim środowisku naukowym przestrzega się zasad etycznych:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII2" #ankietapytIII2="ngModel" [(ngModel)]="ankieta.pytIII2" id="buttony1">
+          <mat-radio-group type="text" name="pytIII02" #ankietapytIII02="ngModel" [(ngModel)]="ankieta.pytIII02" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -171,7 +195,7 @@
             <h4>3) Badania, nad którymi pracuję, mają znaczenie dla społeczeństwa i nie powielają przeprowadzonych wcześniej
               i w innym miejscu badań:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII3" #ankietapytIII3="ngModel" [(ngModel)]="ankieta.pytIII3" id="buttony1">
+          <mat-radio-group type="text" name="pytIII03" #ankietapytIII03="ngModel" [(ngModel)]="ankieta.pytIII03" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -182,7 +206,7 @@
           <div>
             <h4>4) Dobrze znam strategiczne cele swojego środowiska naukowego oraz mechanizmy finansowania badań:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII4" #ankietapytIII4="ngModel" [(ngModel)]="ankieta.pytIII4" id="buttony1">
+          <mat-radio-group type="text" name="pytIII04" #ankietapytIII04="ngModel" [(ngModel)]="ankieta.pytIII04" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -194,7 +218,7 @@
             <h4>5) Przestrzegam zobowiązań wynikających z umów lub przepisów, dostarczając tym samym wymaganych wyników badań
               (np. praca doktorska/habilitacyjna, publikacje, patenty, sprawozdania, opracowanie nowych produktów itp.):</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII5" #ankietapytIII5="ngModel" [(ngModel)]="ankieta.pytIII5" id="buttony1">
+          <mat-radio-group type="text" name="pytIII05" #ankietapytIII05="ngModel" [(ngModel)]="ankieta.pytIII05" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -206,7 +230,7 @@
             <h4>6) Przestrzegam zasad starannego, przejrzystego i efektywnego zarządzania finansami oraz współpracuję z wszelkimi
               organami upoważnionymi do kontroli prowadzonych przeze mnie badań naukowych:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII6" #ankietapytIII6="ngModel" [(ngModel)]="ankieta.pytIII6" id="buttony1">
+          <mat-radio-group type="text" name="pytIII06" #ankietapytIII06="ngModel" [(ngModel)]="ankieta.pytIII06" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -218,7 +242,7 @@
             <h4>7) Stosuję bezpieczne sposoby wykonywania pracy, w tym podejmuję środki ostrożności na wypadek awarii technologii
               informatycznych, a także w zakresie ochrony danych/poufności:</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII7" #ankietapytIII7="ngModel" [(ngModel)]="ankieta.pytIII7" id="buttony1">
+          <mat-radio-group type="text" name="pytIII07" #ankietapytIII07="ngModel" [(ngModel)]="ankieta.pytIII07" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -230,7 +254,7 @@
             <h4>8) Kładę nacisk na to, aby wyniki moich badań były rozpowszechniane (np. poprzez „newsy” na stronie internetowej
               Instytutu) i wykorzystywane (np. komercyjnie):</h4>
           </div>
-          <mat-radio-group type="text" name="pytIII8" #ankietapytIII8="ngModel" [(ngModel)]="ankieta.pytIII8" id="buttony1">
+          <mat-radio-group type="text" name="pytIII08" #ankietapytIII08="ngModel" [(ngModel)]="ankieta.pytIII08" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
@@ -243,7 +267,7 @@
               specjalistami:
             </h4>
           </div>
-          <mat-radio-group type="text" name="pytIII9" #ankietapytIII9="ngModel" [(ngModel)]="ankieta.pytIII9" id="buttony1">
+          <mat-radio-group type="text" name="pytIII09" #ankietapytIII09="ngModel" [(ngModel)]="ankieta.pytIII09" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowaniesiezgadzam">zdecydowanie się zgadzam</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="zgadzamsie">zgadzam się</mat-radio-button>
             <mat-radio-button class="buttony1-margin" value="niemamzdania">nie mam zdania</mat-radio-button>
