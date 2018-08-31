@@ -73,6 +73,7 @@ export class AnkietaComponent implements OnInit {
   czyZapisana: boolean;
   czyPoprzedniaAnkieta: boolean;
   czyZlaAnkieta: boolean;
+  pytI2aWynik: string;
 
   // pytaniaI2 = [
   //   { value: 'wdrazajace-zasadyEKN', viewValue: 'wdrażające zasady Europejskiej Karty Naukowca' },
@@ -119,11 +120,87 @@ export class AnkietaComponent implements OnInit {
   }
 
   zapisz() {
+    if (this.ankieta.pytI2a) {
+      this.ankieta.pytI2a = 'wdrazajace-zasadyEKN';
+    }
+    if (this.ankieta.pytI2b) {
+      this.ankieta.pytI2b = 'wdrazajace-zasadyKodeksu';
+    }
+    if (this.ankieta.pytI2c) {
+      this.ankieta.pytI2c = 'zapewniajacenaukowcom';
+    }
+    if (this.ankieta.pytI2d) {
+      this.ankieta.pytI2d = 'zatrudnijacepowyzej5';
+    }
+
+    if (this.ankieta.pytI3a) {
+      this.ankieta.pytI3a = 'stworzenieporadnika';
+    }
+    if (this.ankieta.pytI3b) {
+      this.ankieta.pytI3b = 'przeprowadzenieszkolenia';
+    }
+    if (this.ankieta.pytI3c) {
+      this.ankieta.pytI3c = 'wprowadzeniedostopki';
+    }
+    if (this.ankieta.pytI3d) {
+      this.ankieta.pytI3d = 'zorganizowanieseminarium';
+    }
+
     this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
     this.czyZapisana = true;
   }
 
   pobierzAnkiete(id) {
+
+    if (this.ankieta.pytI2a === 'wdrazajace-zasadyEKN') {
+      this.ankieta.pytI2a = true;
+    } else {
+      this.ankieta.pytI2a = false;
+    }
+
+    if (this.ankieta.pytI2b === 'wdrazajace-zasadyKodeksu') {
+      this.ankieta.pytI2b = true;
+    } else {
+      this.ankieta.pytI2b = false;
+    }
+
+    if (this.ankieta.pytI2c === 'zapewniajacenaukowcom') {
+      this.ankieta.pytI2c = true;
+    } else {
+      this.ankieta.pytI2c = false;
+    }
+
+    if (this.ankieta.pytI2d === 'zatrudnijacepowyzej5') {
+      this.ankieta.pytI2d = true;
+    } else {
+      this.ankieta.pytI2d = false;
+    }
+
+
+    if (this.ankieta.pytI3a === 'stworzenieporadnika') {
+      this.ankieta.pytI3a = true;
+    } else {
+      this.ankieta.pytI3a = false;
+    }
+
+    if (this.ankieta.pytI3b === 'przeprowadzenieszkolenia') {
+      this.ankieta.pytI3b = true;
+    } else {
+      this.ankieta.pytI3b = false;
+    }
+
+    if (this.ankieta.pytI3c === 'wprowadzeniedostopki') {
+      this.ankieta.pytI3c = true;
+    } else {
+      this.ankieta.pytI3c = false;
+    }
+
+    if (this.ankieta.pytI3d === 'zorganizowanieseminarium') {
+      this.ankieta.pytI3d = true;
+    } else {
+      this.ankieta.pytI3d = false;
+    }
+
     console.log(id);
     if (id === undefined) {
       this.ankieta = this.ankietaPusta;

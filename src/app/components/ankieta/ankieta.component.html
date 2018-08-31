@@ -8,26 +8,27 @@
           <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for Researchers.
             Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie atrakcyjności
             warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją przerwać w dowolnym
-            momencie, bez utraty wprowadzonych odpowiedzi. Aby powrócić do wypełniania należy ponownie kliknąć na link do
-            ankiety otrzymany w wiadomości e-mail.
-            <bR> Ankieta jest dostępna online w terminie od do.</p>
+            momencie, bez utraty wprowadzonych odpowiedzi.</p>
+            <p>W celu dokończenia lub edycji ankiety należy kliknąć przycisk <i>"Wznów/popraw ankietę"</i>, następnie w pole poniżej wpisać zapisany wcześniej numer ankiety i kliknąć <i>"Popraw ankietę"</i>.</p>
+            <p> Ankieta jest dostępna online w terminie <b>od 20 września do 15 października.</b></p>
         </div>
 
 
       </mat-card-header>
       <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
-          <b>Numer ankiety:</b> {{ id }}
+          <br><p> Numer ankiety: <b>{{ id }}</b>  -  <i>zapisz ten numer, jeśli będziesz chciał poprawić lub dokończyć ankietę.</i></p>
           <br>
           <div *ngIf="czyPoprzedniaAnkieta">
+            
             <mat-form-field>
               <input matInput type="text" name="idDoWpisu" [(ngModel)]="idDoWpisu">
             </mat-form-field>
-            <button mat-button (click)="pobierzAnkiete(idDoWpisu)">Pobierz ankietę</button>
-            <p *ngIf="czyZlaAnkieta">Niepoprawny numer ankiety</p>
+            <p>Wklej Twój numer ankiety do pola powyżej i kliknij&nbsp;&nbsp;&nbsp;
+              <button mat-raised-button color="primary" (click)="pobierzAnkiete(idDoWpisu)">Pobierz ankietę</button></p>
+            <p *ngIf="czyZlaAnkieta"><b>Niepoprawny numer ankiety</b></p>
           </div>
-          
-          <button mat-raised-button color="warn" (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button>
+         <p> <button mat-raised-button color="warn" (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button></p>
 
           <div>
             <h3>
@@ -60,7 +61,7 @@
           </mat-radio-group>  -->
 
           <mat-radio-group type="text" id="checkboxy">
-            <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" ng-true-value="'wdrazajace-zasadyEKN'" ng-false-value="''">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
+            <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" value="wdrazajace-zasadyEKN">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
             <mat-checkbox name="pytI2b" #ankietapytI2b="ngModel" [(ngModel)]="ankieta.pytI2b"  value="wdrazajace-zasadyKodeksu">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
             <mat-checkbox name="pytI2c" #ankietapytI2c="ngModel" [(ngModel)]="ankieta.pytI2c" value="zapewniajacenaukowcom">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
             <mat-checkbox name="pytI2d" #ankietapytI2d="ngModel" [(ngModel)]="ankieta.pytI2d" value="zatrudnijacepowyzej5">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
@@ -82,26 +83,16 @@
               /zaznacz wszystkie poprawne odpowiedzi/</h4>
           </div>
           <mat-radio-group type="text" id="checkboxy">
-            <mat-checkbox name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a"  selected= "true" value="stworzenieporadnika">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
-            <mat-checkbox name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b"  selected= "true" value="przeprowadzenieszkolenia">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
+            <mat-checkbox name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a"  value="stworzenieporadnika">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
+            <mat-checkbox name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b" value="przeprowadzenieszkolenia">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
               na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
               <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu
               postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-            <mat-checkbox name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" selected= "true" value="wprowadzeniedostopki">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
-            <mat-checkbox name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d"  selected= "true" value="zorganizowanieseminarium">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
+            <mat-checkbox name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" value="wprowadzeniedostopki">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
+            <mat-checkbox name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d"  value="zorganizowanieseminarium">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
               przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
           </mat-radio-group> 
 
-          <!-- <mat-radio-group type="text" name="pytI3" #ankietapytI3="ngModel" [(ngModel)]="ankieta.pytI3" id="checkboxy">
-            <mat-checkbox value="stworzenieporadnika">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
-            <mat-checkbox value="przeprowadzenieszkolenia">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego
-              na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
-              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu
-              postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-            <mat-checkbox value="wprowadzeniedostopki">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
-            <mat-checkbox value="zorganizowanieseminarium">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone
-              przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński). </mat-checkbox>
-          </mat-radio-group> -->
           <br>
           <div>
             <h3>
@@ -652,7 +643,7 @@
           <br>
           <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz(ankietaForm)">Zapisz dane.</button>
           <br>
-          <p *ngIf="czyZapisana">Dane zostały zapisane.</p>
+          <p *ngIf="czyZapisana"><b>Dane zostały zapisane.</b></p>
         </form>
       </mat-card-content>
     </mat-card>
