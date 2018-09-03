@@ -155,50 +155,50 @@ export class AnkietaComponent implements OnInit {
     if (this.ankieta.pytI2a === 'wdrazajace-zasadyEKN') {
       this.ankieta.pytI2a = true;
     } else {
-      this.ankieta.pytI2a = false;
+      this.ankieta.pytI2a = '';
     }
 
     if (this.ankieta.pytI2b === 'wdrazajace-zasadyKodeksu') {
       this.ankieta.pytI2b = true;
     } else {
-      this.ankieta.pytI2b = false;
+      this.ankieta.pytI2b = '';
     }
 
     if (this.ankieta.pytI2c === 'zapewniajacenaukowcom') {
       this.ankieta.pytI2c = true;
     } else {
-      this.ankieta.pytI2c = false;
+      this.ankieta.pytI2c = '';
     }
 
     if (this.ankieta.pytI2d === 'zatrudnijacepowyzej5') {
       this.ankieta.pytI2d = true;
     } else {
-      this.ankieta.pytI2d = false;
+      this.ankieta.pytI2d = '';
     }
 
 
     if (this.ankieta.pytI3a === 'stworzenieporadnika') {
       this.ankieta.pytI3a = true;
     } else {
-      this.ankieta.pytI3a = false;
+      this.ankieta.pytI3a = '';
     }
 
     if (this.ankieta.pytI3b === 'przeprowadzenieszkolenia') {
       this.ankieta.pytI3b = true;
     } else {
-      this.ankieta.pytI3b = false;
+      this.ankieta.pytI3b = '';
     }
 
     if (this.ankieta.pytI3c === 'wprowadzeniedostopki') {
       this.ankieta.pytI3c = true;
     } else {
-      this.ankieta.pytI3c = false;
+      this.ankieta.pytI3c = '';
     }
 
     if (this.ankieta.pytI3d === 'zorganizowanieseminarium') {
       this.ankieta.pytI3d = true;
     } else {
-      this.ankieta.pytI3d = false;
+      this.ankieta.pytI3d = '';
     }
 
     console.log(id);
