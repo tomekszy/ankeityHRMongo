@@ -654,8 +654,7 @@
             <input matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
           </mat-form-field>
           <br>
-          <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz(ankietaForm)">Zapisz
-            dane.
+          <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz()">Zapisz dane.
           </button>
           <br>
           <p *ngIf="czyZapisana"><b>Dane zostały zapisane.</b></p>
