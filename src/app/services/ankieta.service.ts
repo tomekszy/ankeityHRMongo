@@ -35,12 +35,11 @@ export class AnkietaService {
         .collection('Ankiety')
         .doc(id)
         .valueChanges();
-    }
-    catch {
+    } catch {
       this.ankietaObs = undefined;
     }
     // }
-    return this.ankietaObs
+    return this.ankietaObs;
   }
 
   zapiszAnkiete(ankieta, id) {
