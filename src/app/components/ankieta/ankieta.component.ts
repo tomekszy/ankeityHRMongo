@@ -12,14 +12,14 @@ export class AnkietaComponent implements OnInit {
   ankieta: any;
   ankietaPusta = {
     pytI1: '',
-    pytI2a: '',
-    pytI2b: '',
-    pytI2c: '',
-    pytI2d: '',
-    pytI3a: '',
-    pytI3b: '',
-    pytI3c: '',
-    pytI3d: '',
+    pytI2a: false,
+    pytI2b: false,
+    pytI2c: false,
+    pytI2d: false,
+    pytI3a: false,
+    pytI3b: false,
+    pytI3c: false,
+    pytI3d: false,
     pytII1: '',
     pytII2: '',
     pytII3: '',
@@ -134,31 +134,31 @@ export class AnkietaComponent implements OnInit {
   }
 
   zapisz() {
-    if (this.ankieta.pytI2a) {
-      this.ankieta.pytI2a = 'wdrazajace-zasadyEKN';
-    }
-    if (this.ankieta.pytI2b) {
-      this.ankieta.pytI2b = 'wdrazajace-zasadyKodeksu';
-    }
-    if (this.ankieta.pytI2c) {
-      this.ankieta.pytI2c = 'zapewniajacenaukowcom';
-    }
-    if (this.ankieta.pytI2d) {
-      this.ankieta.pytI2d = 'zatrudnijacepowyzej5';
-    }
+    // if (this.ankieta.pytI2a) {
+    //   this.ankieta.pytI2a = 'wdrazajace-zasadyEKN';
+    // }
+    // if (this.ankieta.pytI2b) {
+    //   this.ankieta.pytI2b = 'wdrazajace-zasadyKodeksu';
+    // }
+    // if (this.ankieta.pytI2c) {
+    //   this.ankieta.pytI2c = 'zapewniajacenaukowcom';
+    // }
+    // if (this.ankieta.pytI2d) {
+    //   this.ankieta.pytI2d = 'zatrudnijacepowyzej5';
+    // }
 
-    if (this.ankieta.pytI3a) {
-      this.ankieta.pytI3a = 'stworzenieporadnika';
-    }
-    if (this.ankieta.pytI3b) {
-      this.ankieta.pytI3b = 'przeprowadzenieszkolenia';
-    }
-    if (this.ankieta.pytI3c) {
-      this.ankieta.pytI3c = 'wprowadzeniedostopki';
-    }
-    if (this.ankieta.pytI3d) {
-      this.ankieta.pytI3d = 'zorganizowanieseminarium';
-    }
+    // if (this.ankieta.pytI3a) {
+    //   this.ankieta.pytI3a = 'stworzenieporadnika';
+    // }
+    // if (this.ankieta.pytI3b) {
+    //   this.ankieta.pytI3b = 'przeprowadzenieszkolenia';
+    // }
+    // if (this.ankieta.pytI3c) {
+    //   this.ankieta.pytI3c = 'wprowadzeniedostopki';
+    // }
+    // if (this.ankieta.pytI3d) {
+    //   this.ankieta.pytI3d = 'zorganizowanieseminarium';
+    // }
 
     this.ankietaService.zapiszAnkiete(this.ankieta, this.id);
     this.czyZapisana = true;
@@ -166,54 +166,54 @@ export class AnkietaComponent implements OnInit {
 
   pobierzAnkiete(id) {
 
-    if (this.ankieta.pytI2a === 'wdrazajace-zasadyEKN') {
-      this.ankieta.pytI2a = true;
-    } else {
-      this.ankieta.pytI2a = '';
-    }
+    // if (this.ankieta.pytI2a === 'wdrazajace-zasadyEKN') {
+    //   this.ankieta.pytI2a = true;
+    // } else {
+    //   this.ankieta.pytI2a = '';
+    // }
 
-    if (this.ankieta.pytI2b === 'wdrazajace-zasadyKodeksu') {
-      this.ankieta.pytI2b = true;
-    } else {
-      this.ankieta.pytI2b = '';
-    }
+    // if (this.ankieta.pytI2b === 'wdrazajace-zasadyKodeksu') {
+    //   this.ankieta.pytI2b = true;
+    // } else {
+    //   this.ankieta.pytI2b = '';
+    // }
 
-    if (this.ankieta.pytI2c === 'zapewniajacenaukowcom') {
-      this.ankieta.pytI2c = true;
-    } else {
-      this.ankieta.pytI2c = '';
-    }
+    // if (this.ankieta.pytI2c === 'zapewniajacenaukowcom') {
+    //   this.ankieta.pytI2c = true;
+    // } else {
+    //   this.ankieta.pytI2c = '';
+    // }
 
-    if (this.ankieta.pytI2d === 'zatrudnijacepowyzej5') {
-      this.ankieta.pytI2d = true;
-    } else {
-      this.ankieta.pytI2d = '';
-    }
+    // if (this.ankieta.pytI2d === 'zatrudnijacepowyzej5') {
+    //   this.ankieta.pytI2d = true;
+    // } else {
+    //   this.ankieta.pytI2d = '';
+    // }
 
 
-    if (this.ankieta.pytI3a === 'stworzenieporadnika') {
-      this.ankieta.pytI3a = true;
-    } else {
-      this.ankieta.pytI3a = '';
-    }
+    // if (this.ankieta.pytI3a === 'stworzenieporadnika') {
+    //   this.ankieta.pytI3a = true;
+    // } else {
+    //   this.ankieta.pytI3a = '';
+    // }
 
-    if (this.ankieta.pytI3b === 'przeprowadzenieszkolenia') {
-      this.ankieta.pytI3b = true;
-    } else {
-      this.ankieta.pytI3b = '';
-    }
+    // if (this.ankieta.pytI3b === 'przeprowadzenieszkolenia') {
+    //   this.ankieta.pytI3b = true;
+    // } else {
+    //   this.ankieta.pytI3b = '';
+    // }
 
-    if (this.ankieta.pytI3c === 'wprowadzeniedostopki') {
-      this.ankieta.pytI3c = true;
-    } else {
-      this.ankieta.pytI3c = '';
-    }
+    // if (this.ankieta.pytI3c === 'wprowadzeniedostopki') {
+    //   this.ankieta.pytI3c = true;
+    // } else {
+    //   this.ankieta.pytI3c = '';
+    // }
 
-    if (this.ankieta.pytI3d === 'zorganizowanieseminarium') {
-      this.ankieta.pytI3d = true;
-    } else {
-      this.ankieta.pytI3d = '';
-    }
+    // if (this.ankieta.pytI3d === 'zorganizowanieseminarium') {
+    //   this.ankieta.pytI3d = true;
+    // } else {
+    //   this.ankieta.pytI3d = '';
+    // }
 
     console.log(id);
     if (id === undefined) {
