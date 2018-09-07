@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnkietaService } from '../../services/ankieta.service';
 
 @Component({
   selector: 'app-odczyt',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./odczyt.component.css']
 })
 export class OdczytComponent implements OnInit {
+  ankiety: any;
 
-  constructor() { }
+  constructor(
+    private ankietaService: AnkietaService,
+  ) { }
 
   ngOnInit() {
+    this.ankietaService.pobierzAnkiety().subscribe(ankiety => {
+      this.ankiety = ankiety;
+      console.log(this.ankiety);
+    });
   }
 
 }

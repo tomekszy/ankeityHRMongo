@@ -19,12 +19,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnkietaComponent } from './components/ankieta/ankieta.component';
 import 'hammerjs';
 import { OdczytComponent } from './components/odczyt/odczyt.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnkietaComponent,
-    OdczytComponent
+    OdczytComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
