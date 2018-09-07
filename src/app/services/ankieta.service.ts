@@ -6,6 +6,8 @@ import {
   combineChange
 } from 'angularfire2/firestore';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +22,20 @@ export class AnkietaService {
   constructor(private afs: AngularFirestore) {
   }
 
-  pobierzAnkiety() {
+  pobierzAnkiety(): Observable<any> {
     this.ankietyObs = this.afs
       .collection('Ankiety')
-      .valueChanges();
+      .snapshotChanges().map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data();
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      });
+    return this.ankietyObs;
   }
 
-  pobierzAnkiete(id) {
+  pobierzAnkiete(id): Observable<any> {
     // if (id === null) {
     //   this.ankietaObs = undefined;
     // } else {

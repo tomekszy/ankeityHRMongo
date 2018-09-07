@@ -10,17 +10,23 @@ import { MaterialModule } from './material.module';
 import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app.routing.module';
+
 import { AnkietaService } from './services/ankieta.service';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnkietaComponent } from './components/ankieta/ankieta.component';
 import 'hammerjs';
+import { OdczytComponent } from './components/odczyt/odczyt.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AnkietaComponent
+    AnkietaComponent,
+    OdczytComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,8 @@ import 'hammerjs';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AppRoutingModule
   ],
   providers: [AnkietaService],
   bootstrap: [AppComponent]
