@@ -5,22 +5,23 @@
 
         <div>
           <p>Szanowni Państwo,</p>
-          <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for Researchers.
-            Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie atrakcyjności
-            warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją przerwać w dowolnym
-            momencie, bez utraty wprowadzonych odpowiedzi.</p>
-            <p>W celu dokończenia lub edycji ankiety należy kliknąć przycisk <i>"Wznów/popraw ankietę"</i>, następnie w pole poniżej wpisać zapisany wcześniej numer ankiety i kliknąć <i>"Popraw ankietę"</i>.</p>
-            <p> Ankieta jest dostępna online w terminie <b>od 20 września do 15 października.</b></p>
+          <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for
+            Researchers. Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie
+            atrakcyjności warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją
+            przerwać w dowolnym momencie, bez utraty wprowadzonych odpowiedzi.</p>
+          <p>W celu dokończenia lub edycji ankiety należy kliknąć przycisk <i>"Wznów/popraw ankietę"</i>, następnie w pole
+            poniżej wpisać zapisany wcześniej numer ankiety i kliknąć <i>"Popraw ankietę"</i>.</p>
+          <p> Ankieta jest dostępna online w terminie <b>od 20 września do 15 października.</b></p>
         </div>
 
 
       </mat-card-header>
       <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
-          <br><p> Numer ankiety: <b>{{ id }}</b>  -  <i>zapisz ten numer, jeśli będziesz chciał poprawić lub dokończyć ankietę.</i></p>
+          <br><p> Numer ankiety: <b>{{ id }}</b> - <i>zapisz ten numer, jeśli będziesz chciał poprawić lub dokończyć ankietę.</i></p>
           <br>
           <div *ngIf="czyPoprzedniaAnkieta">
-            
+
             <mat-form-field>
               <input matInput type="text" name="idDoWpisu" [(ngModel)]="idDoWpisu">
             </mat-form-field>
@@ -28,7 +29,9 @@
               <button mat-raised-button color="primary" (click)="pobierzAnkiete(idDoWpisu)">Pobierz ankietę</button></p>
             <p *ngIf="czyZlaAnkieta"><b>Niepoprawny numer ankiety</b></p>
           </div>
-         <p> <button mat-raised-button color="warn" (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw ankietę</button></p>
+          <p> <button mat-raised-button color="warn" (click)="czyPoprzedniaAnkieta = !czyPoprzedniaAnkieta">Wznów/popraw
+              ankietę
+            </button></p>
 
           <div>
             <h3>
@@ -61,13 +64,17 @@
           </mat-radio-group>  -->
 
           <mat-radio-group type="text" id="checkboxy">
-            <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" value="wdrażające zasady Europejskiej Karty Naukowca">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
-            <mat-checkbox name="pytI2b" #ankietapytI2b="ngModel" [(ngModel)]="ankieta.pytI2b"  value="wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-            <mat-checkbox name="pytI2c" #ankietapytI2c="ngModel" [(ngModel)]="ankieta.pytI2c" value="zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
-            <mat-checkbox name="pytI2d" #ankietapytI2d="ngModel" [(ngModel)]="ankieta.pytI2d" value="zatrudniające powyżej 5 pracowników naukowych z zagranicy">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
-          </mat-radio-group> 
+            <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" value="wdrażające zasady Europejskiej Karty Naukowca">wdrażające
+              zasady Europejskiej Karty Naukowca</mat-checkbox>
+            <mat-checkbox name="pytI2b" #ankietapytI2b="ngModel" [(ngModel)]="ankieta.pytI2b" value="wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych">wdrażające
+              zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+            <mat-checkbox name="pytI2c" #ankietapytI2c="ngModel" [(ngModel)]="ankieta.pytI2c" value="zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery">zapewniające
+              naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
+            <mat-checkbox name="pytI2d" #ankietapytI2d="ngModel" [(ngModel)]="ankieta.pytI2d" value="zatrudniające powyżej 5 pracowników naukowych z zagranicy">zatrudniające
+              powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
+          </mat-radio-group>
 
-         
+
 
           <!-- pytI2a = {{ankieta.pytI2a}}
           pytI2b = {{ankieta.pytI2a}}
@@ -79,17 +86,23 @@
 
 
           <div>
-            <h4>3) Jakie działania były realizowane w MIR-PIB w ramach realizacji strategii Human Resources Strategy for Researchers?
-              /zaznacz wszystkie poprawne odpowiedzi/</h4>
+            <h4>3) Jakie działania były realizowane w MIR-PIB w ramach realizacji strategii Human Resources Strategy for
+              Researchers? /zaznacz wszystkie poprawne odpowiedzi/</h4>
           </div>
           <mat-radio-group type="text" id="checkboxy">
-            <mat-checkbox name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a"  value="stworzenie poradnika pt.: 'Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści'">stworzenie poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
-            <mat-checkbox name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b" value="przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych">przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę
-              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu
-              postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-            <mat-checkbox name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" value="wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo">wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
-            <mat-checkbox name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d"  value="zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński)">zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński).</mat-checkbox>
-          </mat-radio-group> 
+            <mat-checkbox name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a" value="stworzenie poradnika pt.: 'Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści'">stworzenie
+              poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
+            <mat-checkbox name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b" value="przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych">przeprowadzenie
+              szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie
+              kadry kierowniczej (w tym kierowników projektów) w wiedzę
+              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady
+              Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+            <mat-checkbox name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" value="wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo">wprowadzenie
+              do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
+            <mat-checkbox name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d" value="zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński)">zorganizowanie
+              seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę
+              CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński).</mat-checkbox>
+          </mat-radio-group>
 
           <br>
           <div>
@@ -252,8 +265,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>9) Zależy mi na tym, aby wyniki moich badań docierały do ogółu społeczeństwa i były zrozumiałe dla osób nie będących
-              specjalistami:
+            <h4>9) Zależy mi na tym, aby wyniki moich badań docierały do ogółu społeczeństwa i były zrozumiałe dla osób nie
+              będących specjalistami:
             </h4>
           </div>
           <mat-radio-group type="text" name="pytIII09" #ankietapytIII09="ngModel" [(ngModel)]="ankieta.pytIII09" id="buttony1">
@@ -265,9 +278,9 @@
           </mat-radio-group>
 
           <div>
-            <h4>10) W moim środowisku naukowym NIE spotykam się z przejawami dyskryminacji (np. ze względu na płeć, wiek, pochodzenie
-              etniczne, narodowe lub społeczne, religię lub wyznanie, orientację seksualną, język, niepełnosprawność, przekonania
-              polityczne oraz status społeczny bądź materialny):</h4>
+            <h4>10) W moim środowisku naukowym NIE spotykam się z przejawami dyskryminacji (np. ze względu na płeć, wiek,
+              pochodzenie etniczne, narodowe lub społeczne, religię lub wyznanie, orientację seksualną, język, niepełnosprawność,
+              przekonania polityczne oraz status społeczny bądź materialny):</h4>
           </div>
           <mat-radio-group type="text" name="pytIII10" #ankietapytIII10="ngModel" [(ngModel)]="ankieta.pytIII10" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -278,8 +291,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>11) W moim Instytucie istnieje system oceny pracowników i ich wyników zawodowych przeprowadzany w sposób przejrzysty
-              przez niezależną komisję:</h4>
+            <h4>11) W moim Instytucie istnieje system oceny pracowników i ich wyników zawodowych przeprowadzany w sposób
+              przejrzysty przez niezależną komisję:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII11" #ankietapytIII11="ngModel" [(ngModel)]="ankieta.pytIII11" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -290,8 +303,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>12) Znam i rozumiem zasady określone w Kodeksie Postępowania przy rekrutacji pracowników naukowych podczas mianowania
-              lub rekrutacji naukowców:</h4>
+            <h4>12) Znam i rozumiem zasady określone w Kodeksie Postępowania przy rekrutacji pracowników naukowych podczas
+              mianowania lub rekrutacji naukowców:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII12" #ankietapytIII12="ngModel" [(ngModel)]="ankieta.pytIII12" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -302,8 +315,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>13) Rekrutacja na stanowiska naukowe prowadzona w MIR kładzie nacisk na otwarte i przejrzyste procedury, oparte
-              o kwalifikacje kandydatów:</h4>
+            <h4>13) Rekrutacja na stanowiska naukowe prowadzona w MIR kładzie nacisk na otwarte i przejrzyste procedury,
+              oparte o kwalifikacje kandydatów:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII13" #ankietapytIII13="ngModel" [(ngModel)]="ankieta.pytIII13" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -314,8 +327,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>14) Komisje rekrutacyjne dokonujące doboru kandydatów na stanowiska naukowe w MIR mają ku temu odpowiednie doświadczenie
-              i przygotowanie, a także stosują szeroką gamę praktyk selekcji kandydatów:</h4>
+            <h4>14) Komisje rekrutacyjne dokonujące doboru kandydatów na stanowiska naukowe w MIR mają ku temu odpowiednie
+              doświadczenie i przygotowanie, a także stosują szeroką gamę praktyk selekcji kandydatów:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII14" #ankietapytIII14="ngModel" [(ngModel)]="ankieta.pytIII14" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -364,8 +377,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>18) Doświadczenie w zakresie mobilności, np. pobyt w innym kraju/regionie lub w innym środowisku naukowym jest
-              w moim Instytucie wysoko cenione:</h4>
+            <h4>18) Doświadczenie w zakresie mobilności, np. pobyt w innym kraju/regionie lub w innym środowisku naukowym
+              jest w moim Instytucie wysoko cenione:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII18" #ankietapytIII18="ngModel" [(ngModel)]="ankieta.pytIII18" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -410,8 +423,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>22) W Instytucie wszyscy pracownicy są uznawani za profesjonalistów i traktowani zgodnie z tym faktem, tak samo
-              na każdym etapie swojej kariery (począwszy od poziomu studiów doktoranckich):</h4>
+            <h4>22) W Instytucie wszyscy pracownicy są uznawani za profesjonalistów i traktowani zgodnie z tym faktem, tak
+              samo na każdym etapie swojej kariery (począwszy od poziomu studiów doktoranckich):</h4>
           </div>
           <mat-radio-group type="text" name="pytIII22" #ankietapytIII22="ngModel" [(ngModel)]="ankieta.pytIII22" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -422,8 +435,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>23) MIR zapewnia odpowiednie środowisko badań, szkolenia i inne możliwości, w tym współpracę na odległość przy
-              pomocy sieci badawczych:</h4>
+            <h4>23) MIR zapewnia odpowiednie środowisko badań, szkolenia i inne możliwości, w tym współpracę na odległość
+              przy pomocy sieci badawczych:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII23" #ankietapytIII23="ngModel" [(ngModel)]="ankieta.pytIII23" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -479,7 +492,9 @@
           </mat-radio-group>
 
           <div>
-            <h4>28) Sądzę, że warto wprowadzić w Instytucie strategię rozwoju kariery zawodowej dla naukowców (mentoring policy):</h4>
+            <h4>28) Sądzę, że warto wprowadzić w Instytucie strategię rozwoju kariery zawodowej dla naukowców (mentoring
+              policy):
+            </h4>
           </div>
           <mat-radio-group type="text" name="pytIII28" #ankietapytIII28="ngModel" [(ngModel)]="ankieta.pytIII28" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -583,8 +598,8 @@
           </mat-radio-group>
 
           <div>
-            <h4>37) W moim Instytucie starsi pracownicy naukowi budują konstruktywne i pozytywne relacje z początkującymi pracownikami
-              naukowymi celem efektywnego transferu wiedzy, pomyślnego rozwoju kariery tych naukowców:</h4>
+            <h4>37) W moim Instytucie starsi pracownicy naukowi budują konstruktywne i pozytywne relacje z początkującymi
+              pracownikami naukowymi celem efektywnego transferu wiedzy, pomyślnego rozwoju kariery tych naukowców:</h4>
           </div>
           <mat-radio-group type="text" name="pytIII37" #ankietapytIII37="ngModel" [(ngModel)]="ankieta.pytIII37" id="buttony1">
             <mat-radio-button class="buttony1-margin" value="zdecydowanie się zgadzam">zdecydowanie się zgadzam</mat-radio-button>
@@ -639,7 +654,8 @@
             <input matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
           </mat-form-field>
           <br>
-          <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz(ankietaForm)">Zapisz dane.</button>
+          <button mat-raised-button color="warn" type="submit" [disabled]="czyZapisana" (click)="zapisz()">Zapisz dane.
+          </button>
           <br>
           <p *ngIf="czyZapisana"><b>Dane zostały zapisane.</b></p>
         </form>

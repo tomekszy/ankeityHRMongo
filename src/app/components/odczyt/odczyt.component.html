@@ -1,0 +1,7 @@
+<mat-card *ngFor="let ankieta of ankiety">
+  <mat-card-title>Numer ankiety: {{ ankieta.id }}</mat-card-title>
+  <mat-card-content>Udzielono {{ liczbaOdpowiedzi }} odpowiedzi na pytania</mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Zobacz ankietę</button>
+  </mat-card-actions>
+</mat-card>
