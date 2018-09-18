@@ -18,7 +18,7 @@
       </mat-card-header>
       <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
-          <br><p> Numer ankiety: <b>{{ id }}</b> - <i>zapisz ten numer, jeśli będziesz chciał poprawić lub dokończyć ankietę.</i></p>
+          <br><p> Numer ankiety: <b>{{ id }}</b> - <span style="color:Red;"><i>zapisz ten numer, jeśli będziesz chciał poprawić lub dokończyć ankietę.</i></span></p>
           <br>
           <div *ngIf="czyPoprzedniaAnkieta">
 
