@@ -25,9 +25,14 @@ export class AnkietaService {
   pobierzAnkiety(): Observable<any> {
     this.ankietyObs = this.afs
       .collection('Ankiety')
-      .snapshotChanges().map(changes => {
+      .snapshotChanges()
+      .map(changes => {
         return changes.map(action => {
-          const data = action.payload.doc.data();
+          let data = {
+            id: '',
+            data: {}
+          };
+          data.data = action.payload.doc.data();
           data.id = action.payload.doc.id;
           return data;
         });
