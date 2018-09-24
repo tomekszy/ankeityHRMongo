@@ -6,7 +6,7 @@
         <div>
           <p>Odpowiedzi do ankiety {{id}}</p>
           <p>Data wypełnienia {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}</p>
-          <button class="btn btn-success" onClick="history.go(-1);return true;">Powrót</button>
+          <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
         </div>
 
 
@@ -637,7 +637,7 @@
             <input disabled matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
           </mat-form-field>
           <br>
-          <button class="btn btn-success" onClick="history.go(-1);return true;">Powrót</button>
+          <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
           <br>
 
         </form>

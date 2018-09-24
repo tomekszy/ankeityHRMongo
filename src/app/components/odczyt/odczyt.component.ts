@@ -125,6 +125,9 @@ export class OdczytComponent implements OnInit {
         if (ankieta.pytIII40 != '')
           ankiety[index].liczbaOdpowiedzi++;
 
+        // if (ankieta.uwagi == '')
+        //   ankieta.uwagi = 'brak uwag'
+
         // console.log(ankiety[index].liczbaOdpowiedzi);
         // console.log(index);
       });

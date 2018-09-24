@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>Statystyki ankiet</mat-card-title>
-  <mat-card-content>Na podstawie {{liczbaAnkiet}} ankiet</mat-card-content>
+  <mat-card-content>Na podstawie {{ankiety?.length}} ankiet</mat-card-content>
   <mat-card-actions>
     <button mat-button (click)="router.navigate(['/statystykiAnkiet'])">Zobacz statystyki</button>
   </mat-card-actions>
@@ -10,7 +10,7 @@
 <span *ngFor="let ankieta of ankiety">
   <mat-card>
     <mat-card-title>Numer ankiety: {{ ankieta.id }}</mat-card-title>
-    <mat-card-content>Udzielono {{ ankieta.liczbaOdpowiedzi }} odpowiedzi na pytania
+    <mat-card-content>Udzielono {{ ankieta.liczbaOdpowiedzi }} na 48 odpowiedzi na pytania
       <br/> Data wypełnienia {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}
       <br/>Uwagi: {{ankieta.uwagi ? ankieta.uwagi : 'brak uwag'}}
     </mat-card-content>
