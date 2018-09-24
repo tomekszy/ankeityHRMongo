@@ -20,13 +20,17 @@ import { AnkietaComponent } from './components/ankieta/ankieta.component';
 import 'hammerjs';
 import { OdczytComponent } from './components/odczyt/odczyt.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { WyswietlAnkieteComponent } from './components/wyswietl-ankiete/wyswietl-ankiete.component';
+import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wyswietl-statystyki.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnkietaComponent,
     OdczytComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    WyswietlAnkieteComponent,
+    WyswietlStatystykiComponent
   ],
   imports: [
     BrowserModule,
