@@ -22,108 +22,156 @@ export class OdczytComponent implements OnInit {
       // console.log(this.ankiety);
       ankiety.forEach(function (ankieta, index) {
         ankiety[index].liczbaOdpowiedzi = 0;
-        if (ankieta.pytI1 != '')
+        if (ankieta.pytI1 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytI2a == false &&
-          ankieta.pytI2b == false &&
-          ankieta.pytI2c == false &&
-          ankieta.pytI2d == false) { } else
+        }
+        if (ankieta.pytI2a === false &&
+          ankieta.pytI2b === false &&
+          ankieta.pytI2c === false &&
+          ankieta.pytI2d === false) { } else {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytI3a == false &&
-          ankieta.pytI3b == false &&
-          ankieta.pytI3c == false &&
-          ankieta.pytI3d == false) { } else
+        }
+        if (ankieta.pytI3a === false &&
+          ankieta.pytI3b === false &&
+          ankieta.pytI3c === false &&
+          ankieta.pytI3d === false) { } else {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytII1 != '')
+        }
+        if (ankieta.pytII1 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytII2 != '')
+        }
+        if (ankieta.pytII2 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytII3 != '')
+        }
+        if (ankieta.pytII3 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytII4 != '')
+        }
+        if (ankieta.pytII4 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytII5 != '')
+        }
+        if (ankieta.pytII5 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII01 != '')
+        }
+        if (ankieta.pytIII01 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII02 != '')
+        }
+        if (ankieta.pytIII02 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII03 != '')
+        }
+        if (ankieta.pytIII03 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII04 != '')
+        }
+        if (ankieta.pytIII04 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII05 != '')
+        }
+        if (ankieta.pytIII05 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII06 != '')
+        }
+        if (ankieta.pytIII06 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII07 != '')
+        }
+        if (ankieta.pytIII07 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII08 != '')
+        }
+        if (ankieta.pytIII08 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII09 != '')
+        }
+        if (ankieta.pytIII09 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII10 != '')
+        }
+        if (ankieta.pytIII10 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII11 != '')
+        }
+        if (ankieta.pytIII11 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII12 != '')
+        }
+        if (ankieta.pytIII12 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII13 != '')
+        }
+        if (ankieta.pytIII13 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII14 != '')
+        }
+        if (ankieta.pytIII14 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII15 != '')
+        }
+        if (ankieta.pytIII15 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII16 != '')
+        }
+        if (ankieta.pytIII16 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII17 != '')
+        }
+        if (ankieta.pytIII17 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII18 != '')
+        }
+        if (ankieta.pytIII18 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII19 != '')
+        }
+        if (ankieta.pytIII19 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII20 != '')
+        }
+        if (ankieta.pytIII20 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII21 != '')
+        }
+        if (ankieta.pytIII21 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII22 != '')
+        }
+        if (ankieta.pytIII22 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII23 != '')
+        }
+        if (ankieta.pytIII23 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII24 != '')
+        }
+        if (ankieta.pytIII24 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII25 != '')
+        }
+        if (ankieta.pytIII25 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII26 != '')
+        }
+        if (ankieta.pytIII26 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII27 != '')
+        }
+        if (ankieta.pytIII27 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII28 != '')
+        }
+        if (ankieta.pytIII28 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII29 != '')
+        }
+        if (ankieta.pytIII29 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII30 != '')
+        }
+        if (ankieta.pytIII30 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII31 != '')
+        }
+        if (ankieta.pytIII31 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII32 != '')
+        }
+        if (ankieta.pytIII32 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII33 != '')
+        }
+        if (ankieta.pytIII33 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII34 != '')
+        }
+        if (ankieta.pytIII34 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII35 != '')
+        }
+        if (ankieta.pytIII35 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII36 != '')
+        }
+        if (ankieta.pytIII36 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII37 != '')
+        }
+        if (ankieta.pytIII37 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII38 != '')
+        }
+        if (ankieta.pytIII38 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII39 != '')
+        }
+        if (ankieta.pytIII39 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
-        if (ankieta.pytIII40 != '')
+        }
+        if (ankieta.pytIII40 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
+        }
 
         // if (ankieta.uwagi == '')
         //   ankieta.uwagi = 'brak uwag'
