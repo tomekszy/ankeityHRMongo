@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  width: 1300px;
+  width: 1100px;
 }
 
 .regulamin {
@@ -56,6 +56,8 @@ mat-card {
 mat-radio-button {
   padding-top: 5px;
   padding-bottom: 20px;
+  width: 1100px;
+
   /* cursor: inherit;
       align-items: baseline;
       vertical-align: middle;
@@ -66,13 +68,16 @@ mat-radio-button {
 #checkboxy {
   display: flex;
   flex-direction: column;
- 
+  width: 1100px;
   justify-content: space-around; 
 }
 
 mat-checkbox {
   padding-top: 5px;
   padding-bottom: 20px;
+  list-style-position: outside;
+  width: 1100px;
+  text-align: justify;
 }
 mat-card-header {
   font-size: 15px;
