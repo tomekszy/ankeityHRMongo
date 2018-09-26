@@ -5,7 +5,7 @@
 
         <div>
           <p>Odpowiedzi do ankiety o id: {{id}}</p>
-          <p>Data wypełnienia: {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}</p>
+          <p>Data wypełnienia: {{ankieta.dataAnkiety | date: 'dd/MM/yyyy'}}</p>
           <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
         </div>
 
@@ -77,7 +77,8 @@
               szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie
               kadry kierowniczej (w tym <br> kierowników projektów) w wiedzę i narzędzia zwiększające efektywność doboru
               i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy <br>rekrutacji pracowników
-              naukowych</mat-checkbox>
+              naukowych
+            </mat-checkbox>
             <mat-checkbox disabled name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" value="wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo">wprowadzenie
               do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
             <mat-checkbox disabled name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d" value="zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński)">zorganizowanie
@@ -634,7 +635,7 @@
               (ankieta jest anonimowa, wszelkie komentarze są dla nas bardzo cenne):</h4>
           </div>
           <mat-form-field>
-            <input disabled matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi">
+            <textarea disabled matInput placeholder="Twoje uwagi i sugestie" name="uwagi" #ankietauwagi="ngModel" [(ngModel)]="ankieta.uwagi"></textarea>
           </mat-form-field>
           <br>
           <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>

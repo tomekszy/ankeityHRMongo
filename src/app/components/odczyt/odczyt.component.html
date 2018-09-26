@@ -14,7 +14,7 @@
       <mat-card>
         <mat-card-title>Numer ankiety: {{ ankieta.id }}</mat-card-title>
         <mat-card-content>Udzielono {{ ankieta.liczbaOdpowiedzi }} na 48 odpowiedzi na pytania
-          <br/> Data wypełnienia: {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}
+          <br/> Data wypełnienia: {{ ankieta.dataAnkiety | date: 'dd/MM/yyyy'}}
           <br/>Uwagi: {{ankieta.uwagi ? ankieta.uwagi : 'brak uwag'}}
         </mat-card-content>
         <mat-card-actions>

@@ -66,7 +66,8 @@ export class WyswietlAnkieteComponent implements OnInit {
     pytIII39: '',
     pytIII40: '',
     uwagi: '',
-    aktualnaData: new Date()
+    aktualnaData: new Date(),
+    dataAnkiety: Date()
   };
 
   constructor(
@@ -78,6 +79,7 @@ export class WyswietlAnkieteComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     // console.log(this.id);
     this.ankietaService.pobierzAnkiete(this.id).subscribe(ankieta => {
+      ankieta.dataAnkiety = ankieta.aktualnaData.seconds * 1000;
       this.ankieta = ankieta;
       // console.log(this.ankieta);
     });

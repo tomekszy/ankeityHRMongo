@@ -10,10 +10,9 @@ import { Router } from '@angular/router';
 export class OdczytComponent implements OnInit {
   ankiety: any;
 
-
   constructor(
     private ankietaService: AnkietaService,
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -21,6 +20,7 @@ export class OdczytComponent implements OnInit {
       this.ankiety = ankiety;
       // console.log(this.ankiety);
       ankiety.forEach(function (ankieta, index) {
+        ankieta.dataAnkiety = ankieta.aktualnaData.seconds * 1000;
         ankiety[index].liczbaOdpowiedzi = 0;
         if (ankieta.pytI1 !== '') {
           ankiety[index].liczbaOdpowiedzi++;
