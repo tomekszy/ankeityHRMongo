@@ -4,8 +4,8 @@
       <mat-card-header>
 
         <div>
-          <p>Odpowiedzi do ankiety {{id}}</p>
-          <p>Data wypełnienia {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}</p>
+          <p>Odpowiedzi do ankiety o id: {{id}}</p>
+          <p>Data wypełnienia: {{ankieta.aktualnaData.seconds * 1000 | date: 'dd/MM/yyyy'}}</p>
           <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
         </div>
 
@@ -74,15 +74,13 @@
             <mat-checkbox disabled name="pytI3a" #ankietapytI3a="ngModel" [(ngModel)]="ankieta.pytI3a" value="stworzenie poradnika pt.: 'Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści'">stworzenie
               poradnika pt.: „Stanowisko pracownika naukowego w MIR-PIB – ścieżki awansu, wymagania i korzyści”</mat-checkbox>
             <mat-checkbox disabled name="pytI3b" #ankietapytI3b="ngModel" [(ngModel)]="ankieta.pytI3b" value="przeprowadzenie szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym kierowników projektów) w wiedzę i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych">przeprowadzenie
-              szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie
-              kadry kierowniczej (w tym kierowników projektów) w wiedzę
-              <br> i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady
-              Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
+              szkolenia pt. „Działania w ramach strategii Human Resources Strategy for Researchers”, mającego na celu wzmocnienie kadry kierowniczej (w tym <br>
+              kierowników projektów) w wiedzę i narzędzia zwiększające efektywność doboru i rozwoju kadr (prowadząca M. Binkiewicz) wdrażające zasady
+              Kodeksu  postępowania przy <br>rekrutacji pracowników naukowych</mat-checkbox>
             <mat-checkbox disabled name="pytI3c" #ankietapytI3c="ngModel" [(ngModel)]="ankieta.pytI3c" value="wprowadzenie do stopki email oraz wzorów prezentacji Power Point znaku HR logo">wprowadzenie
               do stopki email oraz wzorów prezentacji Power Point znaku HR logo</mat-checkbox>
             <mat-checkbox disabled name="pytI3d" #ankietapytI3d="ngModel" [(ngModel)]="ankieta.pytI3d" value="zorganizowanie seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński)">zorganizowanie
-              seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę
-              CoWinners z Poznania; prowadzący dr Zbigniew Krzewiński).</mat-checkbox>
+              seminarium nt. zarządzania własnością intelektualną i komercjalizacji wyników badań (przeprowadzone przez firmę CoWinners z Poznania; <br>prowadzący dr Zbigniew Krzewiński).</mat-checkbox>
           </mat-radio-group>
 
           <br>
@@ -130,7 +128,7 @@
             <mat-radio-button value="24 lata i mniej">24 lata i mniej</mat-radio-button>
             <mat-radio-button value="25-34 lata">25–34 lata</mat-radio-button>
             <mat-radio-button value="35-44 lata">35–44 lata</mat-radio-button>
-            <mat-radio-button value="45-55 lata">45–54 lata</mat-radio-button>
+            <mat-radio-button value="45-54 lata">45–54 lata</mat-radio-button>
             <mat-radio-button value="55-64 lata">55–64 lata</mat-radio-button>
             <mat-radio-button value="65 lat i więcej">65 lat i więcej</mat-radio-button>
           </mat-radio-group>
