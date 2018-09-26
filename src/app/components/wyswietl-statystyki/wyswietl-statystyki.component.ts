@@ -357,13 +357,13 @@ export class WyswietlStatystykiComponent implements OnInit {
 
       if (ankieta.pytII4 === '24 lata i mniej') {
         this.ankietaStatystyka.pytII4a++;
-      } else if (ankieta.pytII4 === '25–34 lata') {
+      } else if (ankieta.pytII4 === '25-34 lata') {
         this.ankietaStatystyka.pytII4b++;
-      } else if (ankieta.pytII4 === '35–44 lata') {
+      } else if (ankieta.pytII4 === '35-44 lata') {
         this.ankietaStatystyka.pytII4c++;
-      } else if (ankieta.pytII4 === '45–54 lata') {
+      } else if (ankieta.pytII4 === '45-54 lata') {
         this.ankietaStatystyka.pytII4d++;
-      } else if (ankieta.pytII4 === '55–64 lata') {
+      } else if (ankieta.pytII4 === '55-64 lata') {
         this.ankietaStatystyka.pytII4e++;
       } else if (ankieta.pytII4 === '65 lat i więcej') {
         this.ankietaStatystyka.pytII4f++;
@@ -378,13 +378,13 @@ export class WyswietlStatystykiComponent implements OnInit {
         this.ankietaStatystyka.pytII5a++;
       } else if (ankieta.pytII5 === '3–5 lat') {
         this.ankietaStatystyka.pytII5b++;
-      } else if (ankieta.pytII5 === '6-10 lat') {
+      } else if (ankieta.pytII5 === '6–10 lat') {
         this.ankietaStatystyka.pytII5c++;
       } else if (ankieta.pytII5 === '11-20 lat') {
         this.ankietaStatystyka.pytII5d++;
-      } else if (ankieta.pytII5 === '21–30 lat') {
+      } else if (ankieta.pytII5 === '21-30 lat') {
         this.ankietaStatystyka.pytII5e++;
-      } else if (ankieta.pytII5 === '31 lat i więcej') {
+      } else if (ankieta.pytII5 === '31 lat i wiecej') {
         this.ankietaStatystyka.pytII5f++;
       }
 
