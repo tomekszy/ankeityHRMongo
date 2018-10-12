@@ -5,6 +5,15 @@
 
         <div>
           <p>Szanowni Państwo,</p>
+          <p>Ankieta dot. realizowanej przez nasz Instytut strategii Human Resources Strategy for Researchers została zakończona.
+            </p>
+            <br>
+          <p>Bardzo dziękujemy wszystkim za zainteresowanie i poświęcony czas na wypełnienie ankiety!!!</p>
+          
+        </div>
+
+        <!-- <div>
+          <p>Szanowni Państwo,</p>
           <p>Zapraszamy do wypełnienia ankiety dot. realizacji przez nasz Instytut strategii Human Resources Strategy for
             Researchers. Informacje uzyskane w ten sposób pozwolą nam na podjęcie kolejnych działań, mających na celu podniesienie
             atrakcyjności warunków pracy naukowej w MIR-PIB. Ankieta składa się z trzech części i jest anonimowa. Można ją
@@ -12,13 +21,13 @@
           <p>W celu dokończenia lub edycji ankiety należy kliknąć przycisk <i>"Wznów/popraw ankietę"</i>, następnie w pole
             poniżej wpisać zapisany wcześniej numer ankiety i kliknąć <i>"Popraw ankietę"</i>.</p>
           <p> Ankieta jest dostępna online w terminie <b>od 20 września do 5 października 2018.</b></p>
-        </div>
+        </div> -->
 
 
       </mat-card-header>
-      <mat-card-content>
+      <!-- <mat-card-content>
         <form #ankietaForm="ngForm" class="formatka">
-          <br><p> Numer ankiety: <b>{{ id }}</b> - <span style="color:Red;"><i>zapisz ten numer, jeśli będziesz chciał poprawić
+          <br><p>Numer ankiety: <b>{{ id }}</b> - <span style="color:Red;"><i>zapisz ten numer, jeśli będziesz chciał poprawić
                 lub dokończyć ankietę.</i></span></p>
           <br>
           <div *ngIf="czyPoprzedniaAnkieta">
@@ -57,12 +66,7 @@
             </h4>
           </div>
 
-          <!-- <mat-radio-group type="text" name="pytI2" #ankietapytI2="ngModel" [(ngModel)]="ankieta.pytI2" id="checkboxy">
-            <mat-checkbox value="wdrazajace-zasadyEKN">wdrażające zasady Europejskiej Karty Naukowca</mat-checkbox>
-            <mat-checkbox value="wdrazajace-zasadyKodeksu">wdrażające zasady Kodeksu postępowania przy rekrutacji pracowników naukowych</mat-checkbox>
-            <mat-checkbox value="zapewniajacenaukowcom">zapewniające naukowcom atrakcyjne warunki pracy i rozwoju kariery</mat-checkbox>
-            <mat-checkbox value="zatrudnijacepowyzej5">zatrudniające powyżej 5 pracowników naukowych z zagranicy</mat-checkbox>
-          </mat-radio-group>  -->
+          
 
           <mat-radio-group type="text" id="checkboxy">
             <mat-checkbox name="pytI2a" #ankietapytI2a="ngModel" [(ngModel)]="ankieta.pytI2a" value="wdrażające zasady Europejskiej Karty Naukowca">wdrażające
@@ -76,14 +80,7 @@
           </mat-radio-group>
 
 
-
-          <!-- pytI2a = {{ankieta.pytI2a}}
-          pytI2b = {{ankieta.pytI2a}}
-          pytI2c = {{ankieta.pytI2c}}
-          pytI2d = {{ankieta.pytI2d}}  -->
-          <!-- <div *ngFor="let pytanieI2 of pytaniaI2; let i=index" id="checkboxy">
-            <mat-checkbox [value]="pytanieI2.value" name="pytI2">{{ pytanieI2.viewValue }}</mat-checkbox>
-          </div> -->
+        
 
 
           <div>
@@ -663,7 +660,7 @@
           <br>
           <p *ngIf="czyZapisana"><b>Dane zostały zapisane.</b></p>
         </form>
-      </mat-card-content>
+      </mat-card-content> -->
     </mat-card>
   </div>
 </div>
