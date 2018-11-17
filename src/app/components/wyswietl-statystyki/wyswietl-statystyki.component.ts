@@ -376,9 +376,9 @@ export class WyswietlStatystykiComponent implements OnInit {
 
       if (ankieta.pytII5 === '2 lata i mniej') {
         this.ankietaStatystyka.pytII5a++;
-      } else if (ankieta.pytII5 === '3–5 lat') {
+      } else if (ankieta.pytII5 === '3-5 lat') {
         this.ankietaStatystyka.pytII5b++;
-      } else if (ankieta.pytII5 === '6–10 lat') {
+      } else if (ankieta.pytII5 === '6-10 lat') {
         this.ankietaStatystyka.pytII5c++;
       } else if (ankieta.pytII5 === '11-20 lat') {
         this.ankietaStatystyka.pytII5d++;
