@@ -5,6 +5,7 @@ import { AnkietaComponent } from './components/ankieta/ankieta.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { WyswietlAnkieteComponent } from './components/wyswietl-ankiete/wyswietl-ankiete.component';
 import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wyswietl-statystyki.component';
+import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-excel.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/ankieta1', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
     { path: 'odczytAnkiet', component: OdczytComponent },
     { path: 'wyswietlAnkiete/:id', component: WyswietlAnkieteComponent },
     { path: 'statystykiAnkiet', component: WyswietlStatystykiComponent },
+    { path: 'statystykiExcel', component: WyswietlExcelComponent },
     { path: '**', component: NotFoundComponent }
 ];
 
