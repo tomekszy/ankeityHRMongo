@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MaterialModule } from './material.module';
 import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 import { AppRoutingModule } from './app.routing.module';
 
@@ -42,6 +43,7 @@ import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-exc
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
+    NgxJsonViewerModule,
     AngularFireAuthModule,
     AppRoutingModule
   ],
