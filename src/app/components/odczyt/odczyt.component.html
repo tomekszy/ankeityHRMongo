@@ -1,27 +1,28 @@
 <div class="container1">
-    <div class="userRegisterMain">
+  <div class="userRegisterMain">
+    <mat-card>
+      <mat-card-title>Statystyki ankiet</mat-card-title>
+      <mat-card-content>Na podstawie <b>{{ankiety?.length}}</b> ankiet.</mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="router.navigate(['/statystykiAnkiet'])">Zobacz statystyki</button>
+        <button mat-raised-button color="primary" (click)="router.navigate(['/statystykiExcel'])">Statystyki w formacie Excel</button>
+        <br>
+      </mat-card-actions>
+    </mat-card>
+    <br/><br>
+    <p>Zobacz poszczególne ankiety:</p><br/>
+    <span *ngFor="let ankieta of ankiety">
       <mat-card>
-        <mat-card-title>Statystyki ankiet</mat-card-title>
-        <mat-card-content>Na podstawie <b>{{ankiety?.length}}</b> ankiet.</mat-card-content>
+        <mat-card-title>Numer ankiety: {{ ankieta.id }}</mat-card-title>
+        <mat-card-content>Udzielono <b>{{ ankieta.liczbaOdpowiedzi }}</b> na 48 odpowiedzi na pytania
+          <br/> Data wypełnienia: {{ ankieta.dataAnkiety | date: 'dd/MM/yyyy'}}
+          <br/>Uwagi: {{ankieta.uwagi ? ankieta.uwagi : 'brak uwag'}}
+        </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="router.navigate(['/statystykiAnkiet'])">Zobacz statystyki</button>
-          <br>
+          <button mat-raised-button color="primary" (click)="router.navigate(['/wyswietlAnkiete/', ankieta.id])">Zobacz ankietę</button>
         </mat-card-actions>
       </mat-card>
-      <br/><br>
-      <p>Zobacz poszczególne ankiety:</p><br/>
-      <span *ngFor="let ankieta of ankiety">
-        <mat-card>
-          <mat-card-title>Numer ankiety: {{ ankieta.id }}</mat-card-title>
-          <mat-card-content>Udzielono <b>{{ ankieta.liczbaOdpowiedzi }}</b> na 48 odpowiedzi na pytania
-            <br/> Data wypełnienia: {{ ankieta.dataAnkiety | date: 'dd/MM/yyyy'}}
-            <br/>Uwagi: {{ankieta.uwagi ? ankieta.uwagi : 'brak uwag'}}
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="router.navigate(['/wyswietlAnkiete/', ankieta.id])">Zobacz ankietę</button>
-          </mat-card-actions>
-        </mat-card>
-        <br/>
-      </span>
-    </div>
+      <br/>
+    </span>
   </div>
+</div>

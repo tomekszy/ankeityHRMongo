@@ -9,6 +9,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { MaterialModule } from './material.module';
 import { MatInputModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
 import { AppRoutingModule } from './app.routing.module';
 
@@ -22,6 +23,7 @@ import { OdczytComponent } from './components/odczyt/odczyt.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { WyswietlAnkieteComponent } from './components/wyswietl-ankiete/wyswietl-ankiete.component';
 import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wyswietl-statystyki.component';
+import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-excel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wy
     OdczytComponent,
     NotFoundComponent,
     WyswietlAnkieteComponent,
-    WyswietlStatystykiComponent
+    WyswietlStatystykiComponent,
+    WyswietlExcelComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,7 @@ import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wy
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
+    NgxJsonViewerModule,
     AngularFireAuthModule,
     AppRoutingModule
   ],

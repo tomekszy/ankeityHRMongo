@@ -1,0 +1,38 @@
+<div class="container1">
+  <div class="userRegisterMain">
+    <mat-card>
+      <mat-card-header>
+        <div>
+          <p>Statystyki do Excela</p>
+          <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+
+          <tr *ngFor="let ankieta of ankiety; let i = index">
+            {{i}}
+            <td>{{ankieta.pytI1}}</td>
+            <td>{{ankieta.pytI2a}}</td>
+            <td>{{ankieta.pytI2b}}</td>
+            <td>{{ankieta.pytI2c}}</td>
+            <td>{{ankieta.pytI2d}}</td>
+            <td>{{ankieta.pytI3a}}</td>
+            <td>{{ankieta.pytI3b}}</td>
+            <td>{{ankieta.pytI3c}}</td>
+            <td>{{ankieta.pytI3d}}</td>
+            <td>{{ankieta.pytII1}}</td>
+            <td>{{ankieta.pytII2}}</td>
+            <td>{{ankieta.pytII3}}</td>
+
+
+            <!-- <td>
+              {{ankieta | json}}
+              <ngx-json-viewer [json]="ankieta" [expanded]="false"></ngx-json-viewer>
+            </td> -->
+          </tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
