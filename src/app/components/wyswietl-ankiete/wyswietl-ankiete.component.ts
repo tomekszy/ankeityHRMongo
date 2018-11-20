@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AnkietaService } from '../../services/ankieta.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-wyswietl-ankiete',
