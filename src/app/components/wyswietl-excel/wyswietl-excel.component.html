@@ -5,13 +5,14 @@
         <div>
           <p>Statystyki do Excela</p>
           <button mat-raised-button color="primary" onClick="history.go(-1);return true;">Powrót</button>
+          <button mat-raised-button color="primary" (click)="zapiszDoExcela()">Zapisz plik Excela</button>
         </div>
       </mat-card-header>
       <mat-card-content>
-        <table width="1000" border="1">
+        <table width="1000" border="1" class="sjs-table">
 
           <tr *ngFor="let ankieta of ankiety; let i = index">
-            {{i}}
+            <td>{{i}}</td>
             <td>{{ankieta.id}}</td>
             <td>{{ankieta.pytI1}}</td>
             <td>{{ankieta.pytI2a}}</td>
@@ -70,11 +71,11 @@
 
 
 
-           
-            
-   
-    
-    
+
+
+
+
+
 
 
             <!-- <td>
