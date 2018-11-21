@@ -25,6 +25,8 @@ import { WyswietlAnkieteComponent } from './components/wyswietl-ankiete/wyswietl
 import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wyswietl-statystyki.component';
 import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-excel.component';
 import { KoniecAnkietyComponent } from './components/koniec-ankiety/koniec-ankiety.component';
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { KoniecAnkietyComponent } from './components/koniec-ankiety/koniec-ankie
     FormsModule,
     NgxJsonViewerModule,
     AngularFireAuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PDFExportModule
   ],
   providers: [AnkietaService],
   bootstrap: [AppComponent]
