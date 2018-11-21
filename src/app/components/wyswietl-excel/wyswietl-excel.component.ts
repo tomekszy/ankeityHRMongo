@@ -55,4 +55,24 @@ export class WyswietlExcelComponent implements OnInit {
     });
   }
 
+  convert() {
+    var item = {
+      "Name": "XYZ",
+      "Age": "22",
+      "Gender": "Male"
+    };
+    var doc = new jsPDF();
+    var col = ["Details", "Values"];
+    var rows = [];
+
+    for (var key in item) {
+      var temp = [key, item[key]];
+      rows.push(temp);
+    }
+
+    doc.autoTable(col, rows);
+
+    doc.save('Test.pdf');
+  }
+
 }
