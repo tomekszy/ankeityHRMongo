@@ -24,6 +24,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { WyswietlAnkieteComponent } from './components/wyswietl-ankiete/wyswietl-ankiete.component';
 import { WyswietlStatystykiComponent } from './components/wyswietl-statystyki/wyswietl-statystyki.component';
 import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-excel.component';
+import { KoniecAnkietyComponent } from './components/koniec-ankiety/koniec-ankiety.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { WyswietlExcelComponent } from './components/wyswietl-excel/wyswietl-exc
     NotFoundComponent,
     WyswietlAnkieteComponent,
     WyswietlStatystykiComponent,
-    WyswietlExcelComponent
+    WyswietlExcelComponent,
+    KoniecAnkietyComponent
   ],
   imports: [
     BrowserModule,

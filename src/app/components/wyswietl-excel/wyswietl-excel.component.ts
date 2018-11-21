@@ -31,7 +31,7 @@ export class WyswietlExcelComponent implements OnInit {
           this.keys.push({ key: key });
         });
     });
-    this.data = [this.keys], [this.values];
+    this.data = [1, 2, 3]['a'];
     //tu jakoś inaczej przerobić te tablice, żeby plugin łykał
   }
 
