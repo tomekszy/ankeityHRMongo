@@ -22,23 +22,18 @@ export class WyswietlExcelComponent implements OnInit {
   ngOnInit() {
     this.ankietaService.pobierzAnkiety().subscribe(ankiety => {
       this.ankiety = ankiety;
-      Object.entries(ankiety).forEach(
-        ([key, value]) => {
-          this.values.push(value);
-          this.keys.push({ key: key });
-        });
     });
   }
 
   zapiszDoExcela() {
-    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.values);
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.ankiety);
 
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    XLSX.writeFile(wb, 'SheetJS.xlsx');
+    XLSX.writeFile(wb, 'ankiety.xlsx');
   }
 
 }
