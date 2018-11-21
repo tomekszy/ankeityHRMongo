@@ -13,9 +13,6 @@ export class WyswietlExcelComponent implements OnInit {
   ankiety: any;
   values: {}[] = [{}];
   keys: {}[] = [{}];
-  data: any[][];
-  // data: {}[] = [{}];
-
 
   constructor(
     private ankietaService: AnkietaService,
@@ -31,12 +28,10 @@ export class WyswietlExcelComponent implements OnInit {
           this.keys.push({ key: key });
         });
     });
-    this.data = [1, 2, 3]['a'];
-    //tu jakoś inaczej przerobić te tablice, żeby plugin łykał
   }
 
   zapiszDoExcela() {
-    const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(this.data);
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.values);
 
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
@@ -45,6 +40,5 @@ export class WyswietlExcelComponent implements OnInit {
     /* save to file */
     XLSX.writeFile(wb, 'SheetJS.xlsx');
   }
-
 
 }
